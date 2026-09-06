@@ -5,8 +5,7 @@ plugins {
 
 dependencies {
     implementation(projects.api.pluginCommons)
-    implementation(projects.api.combat.combatCommons)
-    implementation(projects.api.combat.combatManager)
-    implementation(projects.api.scriptAdvanced)
+    implementation(projects.api.utils.utilsSkills)
     integrationImplementation(projects.api.player)
+    integrationImplementation(projects.api.utils.utilsSkills)
 }
