@@ -1,0 +1,3 @@
+[[spawn]]
+npc = 'my_npc'
+coords = '0_49_49_32_32'
