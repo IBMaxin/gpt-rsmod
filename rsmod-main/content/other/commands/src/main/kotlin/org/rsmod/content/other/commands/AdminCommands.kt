@@ -82,6 +82,7 @@ constructor(
         onCommand("tele", "Teleport to coordgrid", ::tele) {
             invalidArgs = "Use as ::tele level mx mz lx lz (ex: 0 50 50 0 0)"
         }
+        onCommand("ardougne", "Teleport to East Ardougne market stalls", ::teleArdougne)
         onCommand("telezone", "Teleport to zone key", ::teleZone) {
             invalidArgs = "Use as ::telezone zoneX zoneY level (ex: 400 400 0)"
         }
@@ -133,6 +134,15 @@ constructor(
             val coords = CoordGrid(level, mx, mz, lx, lz)
             protectedAccess.launch(player) {
                 player.mes("Teleported to $coords.")
+                telejump(coords)
+            }
+        }
+
+    private fun teleArdougne(cheat: Cheat) =
+        with(cheat) {
+            val coords = CoordGrid(0, 41, 51, 38, 41)
+            protectedAccess.launch(player) {
+                player.mes("Teleporting to East Ardougne market stalls.")
                 telejump(coords)
             }
         }

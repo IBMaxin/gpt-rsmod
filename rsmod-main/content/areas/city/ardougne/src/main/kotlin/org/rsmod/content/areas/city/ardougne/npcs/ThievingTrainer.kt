@@ -9,7 +9,7 @@ import org.rsmod.map.CoordGrid
 import org.rsmod.plugin.scripts.PluginScript
 import org.rsmod.plugin.scripts.ScriptContext
 
-private val ARDOUGNE_MARKET = CoordGrid(0, 51, 54, 11, 10)
+private val ARDOUGNE_MARKET = CoordGrid(0, 41, 51, 38, 41)
 
 class ThievingTrainer : PluginScript() {
     override fun ScriptContext.startup() {
