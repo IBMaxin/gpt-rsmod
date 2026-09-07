@@ -48,8 +48,10 @@ class ThievingConfigTest {
     @Test
     fun GameTestState.`verify pickpocket success rate scales with level`() = runBasicGameTest {
         val rate1 = SkillingSuccessRate.successRate(low = 180, high = 240, level = 1, maxLevel = 99)
-        val rate50 = SkillingSuccessRate.successRate(low = 180, high = 240, level = 50, maxLevel = 99)
-        val rate99 = SkillingSuccessRate.successRate(low = 180, high = 240, level = 99, maxLevel = 99)
+        val rate50 =
+            SkillingSuccessRate.successRate(low = 180, high = 240, level = 50, maxLevel = 99)
+        val rate99 =
+            SkillingSuccessRate.successRate(low = 180, high = 240, level = 99, maxLevel = 99)
         assertTrue(rate1 < rate50)
         assertTrue(rate50 < rate99)
     }

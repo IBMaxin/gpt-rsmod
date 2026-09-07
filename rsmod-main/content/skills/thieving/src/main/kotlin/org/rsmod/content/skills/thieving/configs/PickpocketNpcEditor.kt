@@ -5,15 +5,16 @@ import org.rsmod.game.type.npc.NpcType
 
 object PickpocketNpcEditor : NpcEditor() {
     init {
-        val people = setOf(
-            PickpocketNpcRefs.man,
-            PickpocketNpcRefs.man2,
-            PickpocketNpcRefs.man3,
-            PickpocketNpcRefs.man_indoor,
-            PickpocketNpcRefs.woman,
-            PickpocketNpcRefs.woman2,
-            PickpocketNpcRefs.woman3,
-        )
+        val people =
+            setOf(
+                PickpocketNpcRefs.man,
+                PickpocketNpcRefs.man2,
+                PickpocketNpcRefs.man3,
+                PickpocketNpcRefs.man_indoor,
+                PickpocketNpcRefs.woman,
+                PickpocketNpcRefs.woman2,
+                PickpocketNpcRefs.woman3,
+            )
         people.forEach(::editPickpocketNpc)
     }
 

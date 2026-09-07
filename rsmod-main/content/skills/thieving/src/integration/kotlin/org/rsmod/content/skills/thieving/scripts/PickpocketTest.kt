@@ -3,7 +3,6 @@ package org.rsmod.content.skills.thieving.scripts
 import org.junit.jupiter.api.Test
 import org.rsmod.api.config.refs.content
 import org.rsmod.api.config.refs.objs
-import org.rsmod.api.config.refs.params
 import org.rsmod.api.config.refs.stats
 import org.rsmod.api.testing.GameTestState
 import org.rsmod.map.CoordGrid
@@ -74,9 +73,7 @@ class PickpocketTest {
     @Test
     fun GameTestState.`cannot pickpocket non-person npc`() =
         runGameTest(Pickpocket::class) {
-            val npcType = npcTypes.values.first {
-                !it.isContentType(content.person)
-            }
+            val npcType = npcTypes.values.first { !it.isContentType(content.person) }
             val npc = spawnNpc(CoordGrid(0, 50, 50, 32, 32), npcType)
             player.teleport(CoordGrid(0, 50, 50, 32, 33))
 
