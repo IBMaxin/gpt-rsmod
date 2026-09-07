@@ -10,3 +10,9 @@
 # OS files
 .DS_Store
 Thumbs.db
+
+# IDE
+.vscode/
+
+# Build artifacts
+compile_output.txt
