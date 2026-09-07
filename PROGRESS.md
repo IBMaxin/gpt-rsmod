@@ -18,6 +18,46 @@ All source files for the Ardougne Thieving Area are written under
 
 ---
 
+## Remaining Bugs
+
+### 1. Guard NPC missing `op[0] = "Talk-to"` in editor (GAME-BREAKING)
+**File:** `src/main/kotlin/.../configs/ArdougneNpcs.kt`
+**Severity:** High — ThievingTrainer dialogue is inaccessible in-game.
+
+`OpNpcHandler` calls `npcInteractions.hasOp()` which checks
+`npc.visType.hasOp(op)`. The cache NPC "ardougne_guard" has null `op[0]`,
+so the interaction is silently blocked before the event fires.
+
+The test works around this by setting `guardType.op[0] = "Talk-to"` at
+runtime, but the `ArdougneNpcEditor` needs the same fix for the real game:
+
+```kotlin
+edit(ardougne_npcs.guard) {
+    op[0] = "Talk-to"
+    defaultMode = wander
+    wanderRange = 3
+}
+```
+
+### 2. MarketGuard is an empty stub (TODO)
+**File:** `src/main/kotlin/.../npcs/MarketGuard.kt`
+**Severity:** Medium — Guard-catch aggro after stealing is unimplemented.
+
+When a player is caught stealing, a guard should aggro and attack/punish
+the player. This requires a line-of-sight detection system tied to
+`StallThieving` — currently marked as TODO.
+
+### 3. `ArdougneObjs` is `internal` (minor)
+**File:** `src/main/kotlin/.../configs/ArdougneObjs.kt`
+**Severity:** Low — only blocks future tests that need to assert specific
+loot objects by name (e.g., `assertContains(player.inv, ardougne_objs.cake)`).
+
+Currently tests use `player.inv.any { it != null }` so this isn't
+blocking, but if inventory content assertions are added later, the
+typealias must be made public (same fix as was done for `ardougne_locs`).
+
+---
+
 ## Bugs Fixed
 
 ### Fix 1: NPC type mismatch in ThievingTrainerTest
