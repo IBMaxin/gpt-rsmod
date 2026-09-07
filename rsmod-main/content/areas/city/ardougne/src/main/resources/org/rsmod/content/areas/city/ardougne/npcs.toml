@@ -1,0 +1,10 @@
+# East Ardougne — Thieving Trainer (market south entrance)
+# Talk-to → dialogue → "Take me to the Thieving District." → teleports player to stalls
+[[spawn]]
+npc = 'ardougne_guard'
+coords = '0_41_51_38_39'
+
+# Second guard patrol near stalls
+[[spawn]]
+npc = 'ardougne_guard'
+coords = '0_41_51_35_42'

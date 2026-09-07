@@ -16,11 +16,7 @@ import org.rsmod.game.hit.HitType
 import org.rsmod.plugin.scripts.PluginScript
 import org.rsmod.plugin.scripts.ScriptContext
 
-class Pickpocket
-@Inject
-constructor(
-    private val invisibleLvls: InvisibleLevels,
-) : PluginScript() {
+class Pickpocket @Inject constructor(private val invisibleLvls: InvisibleLevels) : PluginScript() {
     override fun ScriptContext.startup() {
         onOpNpc3(content.person) { pickpocket(it.npc) }
     }
