@@ -191,6 +191,26 @@ fun advance(ticks: Int = 1) {
 ### 3. No `ifButtonT` test helper
 `GameTestScope` has `ifButtonD` (drag) and `ifButton()` (3-button) but NO `ifButtonT` (use-on-use). To test `onOpHeldU` scripts, use `eventBus.publish(this, HeldUEvents.Type(...))` directly.
 
+## Critical Gotchas
+
+### 1. `advance()` clears capture clients FIRST
+```kotlin
+fun advance(ticks: Int = 1) {
+    repeat(ticks) {
+        clearCaptureClients()  // WIPES messages sent during withProtectedAccess
+        gameCycle.tick()
+        flushCaptureClients()  // Only captures messages from this tick
+    }
+}
+```
+**Solution**: Assert messages BEFORE `advance()`, or don't call `advance()` for level-check tests.
+
+### 2. `withProtectedAccess` doesn't await completion
+`ProtectedAccessLauncher.launch()` calls `player.launch { }` which starts a coroutine but returns immediately. The coroutine runs synchronously if no suspension point, but if `mes()` is called, the coroutine suspends.
+
+### 3. No `ifButtonT` test helper
+`GameTestScope` has `ifButtonD` (drag) and `ifButton()` (3-button) but NO `ifButtonT` (use-on-use). To test `onOpHeldU` scripts, use `eventBus.publish(this, HeldUEvents.Type(...))` directly.
+
 ### 4. `invDel` transaction failure in event bus context
 **KNOWN BUG**: `invDel` silently fails when called inside a script handler triggered by `eventBus.publish` within `withProtectedAccess`, while `invAdd` works. See `FIX_FLETCHING_TESTS.md` for details. The `InvTransactionsTest` proves `invDel` works when called directly via `Player.invDel` extension in `runBasicGameTest`.
 
@@ -208,16 +228,36 @@ Per-module refs should use `find("name")` — don't modify `BaseObjs.kt`. The `i
 - `runBasicGameTest` — simpler scope, uses `withPlayerInit` for direct inventory ops
 - Inventory transaction tests should use `runBasicGameTest`
 
+### 9. ALL INTEGRATION TESTS BLOCKED by `content.fletching_knife` type verifier error
+**GLOBAL BLOCKER**: `BaseContent.kt:58` defines `val fletching_knife = find("fletching_knife")`. The `ContentReferences.find()` creates a `ContentGroupType`, but the `TypeVerifier` validates all references against the item `.sym` file, where `fletching_knife` does not exist (the actual item is `knife` id 946). This causes ALL integration tests across ALL skills to fail at initialization with `RuntimeException` at `GameServer.kt:229`.
+**FIX NEEDED**: Either remove `fletching_knife` from `BaseContent.kt` or replace with a valid content group name that exists in the cache.
+
+### 10. `ObjTypeList.find()` returns `HashedObjType`
+Per-module refs should use `find("name")` — don't modify `BaseObjs.kt`. The `internalId` is lazy-computed from hash.
+
+### 11. `HashedObjType.equals()` compares `startHash` + `internalId`
+`UnpackedObjType` is a data class — equality is structural. Both types share `ObjType.id` → `internalId`.
+
+### 12. `inv.count()` requires `UnpackedObjType`
+`Inventory.count(objType: UnpackedObjType)` needs the unpacked type. Inject `ObjTypeList` and resolve via `objTypes[hashedObjType]`.
+
+### 13. `runGameTest` vs `runBasicGameTest`
+- `runGameTest(Script::class)` — creates full test scope with script registration via Guice
+- `runBasicGameTest` — simpler scope, uses `withPlayerInit` for direct inventory ops
+- Inventory transaction tests should use `runBasicGameTest`
+
 ## Completed Skills
 
 | Skill | Status | Tests | Notes |
 |-------|--------|-------|-------|
-| Thieving | Committed (`b888050`) | 10/10 | Pickpocket pattern (NPC-based) |
-| Woodcutting | Committed | All pass | LOC gathering pattern with timers |
-| Fletching | In progress | 7/9 | Item-on-item pattern, 2 `invDel` failures |
+| Thieving | Committed (`b888050`) | 0/10 (BLOCKED) | Pickpocket pattern (NPC-based) - ALL tests blocked by `fletching_knife` type verifier error |
+| Woodcutting | Committed | 0/2 (BLOCKED) | LOC gathering pattern with timers - ALL tests blocked by `fletching_knife` type verifier error |
+| Fletching | In progress | 0/2 (BLOCKED) | Item-on-item pattern, 2 `invDel` failures + `fletching_knife` type verifier error |
 | Cooking | Not started | — | Plan at `content/skills/cooking/PLAN.md` |
 | Firemaking | Not started | — | Plan at `content/skills/firemaking/PLAN.md` |
 | Fishing | Not started | — | Plan at `content/skills/fishing/PLAN.md` |
+
+**NOTE**: ALL integration tests are currently blocked by the `content.fletching_knife` type verifier error in `BaseContent.kt:58`. Until this is fixed, no skill's integration tests can run.
 
 ## File Conventions
 

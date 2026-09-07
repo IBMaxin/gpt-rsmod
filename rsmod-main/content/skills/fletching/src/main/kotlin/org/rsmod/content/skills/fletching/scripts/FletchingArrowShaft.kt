@@ -19,12 +19,8 @@ constructor(
     private val objTypes: ObjTypeList,
 ) : PluginScript() {
     override fun ScriptContext.startup() {
-        onOpHeldU(FletchingObjRefs.knife, FletchingObjRefs.logs) { makeShafts(FletchingObjRefs.logs) }
-        onOpHeldU(FletchingObjRefs.knife, FletchingObjRefs.oak_logs) { makeShafts(FletchingObjRefs.oak_logs) }
-        onOpHeldU(FletchingObjRefs.knife, FletchingObjRefs.willow_logs) { makeShafts(FletchingObjRefs.willow_logs) }
-        onOpHeldU(FletchingObjRefs.knife, FletchingObjRefs.maple_logs) { makeShafts(FletchingObjRefs.maple_logs) }
-        onOpHeldU(FletchingObjRefs.knife, FletchingObjRefs.yew_logs) { makeShafts(FletchingObjRefs.yew_logs) }
-        onOpHeldU(FletchingObjRefs.knife, FletchingObjRefs.magic_logs) { makeShafts(FletchingObjRefs.magic_logs) }
+        /* Arrow shaft registrations are handled by FletchingBow to avoid
+           duplicate HeldUEvents keys (knife+log combos). */
     }
 
     private suspend fun ProtectedAccess.makeShafts(log: ObjType) {

@@ -20,6 +20,12 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Fixed
 - Removed `build.gradle.kts` from `_template` directories (bosses, npcs, skills) to fix Gradle project naming convention errors
 
+### Known Issues
+- ALL integration tests fail with `RuntimeException` at `GameServer.kt:229` due to `content.fletching_knife` reference in `BaseContent.kt` that is not a valid item name in the `.sym` file
+  - Error: "The following references use names that are not defined in a .sym file (1 found) - Name: fletching_knife"
+  - This is a type verifier issue: `ContentReferences.find()` creates a `ContentGroupType` but the verifier validates it against the item `.sym` file
+  - Blocks ALL skills' integration tests (fletching, thieving, woodcutting, cooking, firemaking, fishing)
+
 ## [0.1.0] - 2026-09-06
 
 ### Added

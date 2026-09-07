@@ -72,7 +72,7 @@ class FletchingConfigTest {
     fun GameTestState.`ensure knife has required params`() = runBasicGameTest {
         val knife = cacheTypes.objs[FletchingObjRefs.knife.id]
         assertNotNull(knife)
-        assertTrue(knife.isContentType(content.fletching_knife))
+        assertTrue(knife!!.isContentType(content.fletching_knife))
     }
 
     @Test
@@ -88,7 +88,7 @@ class FletchingConfigTest {
         for (ref in logs) {
             val type = cacheTypes.objs[ref.id]
             assertNotNull(type, "Log ref '${ref.internalName}' not found in cache")
-            val logParams = type.paramMap
+            val logParams = type!!.paramMap
             assertNotNullContract(logParams)
             assertTrue(params.levelrequire in logParams, "${ref.internalName} missing levelrequire")
             assertTrue(params.skill_xp in logParams, "${ref.internalName} missing skill_xp")
@@ -109,7 +109,7 @@ class FletchingConfigTest {
         for (ref in arrowheads) {
             val type = cacheTypes.objs[ref.id]
             assertNotNull(type, "Arrowhead ref '${ref.internalName}' not found in cache")
-            val tipParams = type.paramMap
+            val tipParams = type!!.paramMap
             assertNotNullContract(tipParams)
             assertTrue(params.levelrequire in tipParams, "${ref.internalName} missing levelrequire")
             assertTrue(params.skill_xp in tipParams, "${ref.internalName} missing skill_xp")
@@ -136,7 +136,7 @@ class FletchingConfigTest {
         for (ref in unstrungBows) {
             val type = cacheTypes.objs[ref.id]
             assertNotNull(type, "Unstrung bow ref '${ref.internalName}' not found in cache")
-            val bowParams = type.paramMap
+            val bowParams = type!!.paramMap
             assertNotNullContract(bowParams)
             assertTrue(params.levelrequire in bowParams, "${ref.internalName} missing levelrequire")
             assertTrue(params.skill_xp in bowParams, "${ref.internalName} missing skill_xp")
@@ -148,7 +148,7 @@ class FletchingConfigTest {
     fun GameTestState.`ensure feather has required params`() = runBasicGameTest {
         val feather = cacheTypes.objs[FletchingObjRefs.feather.id]
         assertNotNull(feather)
-        val featherParams = feather.paramMap
+        val featherParams = feather!!.paramMap
         assertNotNullContract(featherParams)
         assertTrue(params.levelrequire in featherParams)
         assertTrue(params.skill_xp in featherParams)
@@ -158,7 +158,7 @@ class FletchingConfigTest {
     fun GameTestState.`ensure arrow shaft has required params`() = runBasicGameTest {
         val shaft = cacheTypes.objs[FletchingObjRefs.arrow_shaft.id]
         assertNotNull(shaft)
-        val shaftParams = shaft.paramMap
+        val shaftParams = shaft!!.paramMap
         assertNotNullContract(shaftParams)
         assertTrue(params.levelrequire in shaftParams)
         assertTrue(params.skill_xp in shaftParams)

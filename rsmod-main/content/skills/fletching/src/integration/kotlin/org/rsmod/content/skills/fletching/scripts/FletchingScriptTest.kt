@@ -179,7 +179,9 @@ class FletchingScriptTest {
 
             player.inv[0] = InvObj(FletchingObjRefs.knife, 1)
             player.inv[1] = InvObj(FletchingObjRefs.logs, 1)
-            fillInventory(with = FletchingObjRefs.arrow_shaft)
+            for (i in 2..27) {
+                player.inv[i] = InvObj(FletchingObjRefs.arrow_shaft, 1)
+            }
 
             player.withProtectedAccess {
                 val knife = objTypes[FletchingObjRefs.knife]
@@ -200,7 +202,9 @@ class FletchingScriptTest {
 
             player.inv[0] = InvObj(FletchingObjRefs.bow_string, 1)
             player.inv[1] = InvObj(FletchingObjRefs.unstrung_shortbow, 1)
-            fillInventory(with = FletchingObjRefs.arrow_shaft)
+            for (i in 2..27) {
+                player.inv[i] = InvObj(FletchingObjRefs.arrow_shaft, 1)
+            }
 
             player.withProtectedAccess {
                 val bowString = objTypes[FletchingObjRefs.bow_string]
@@ -252,10 +256,4 @@ class FletchingScriptTest {
             assertMessageSent("You need 15 feathers and 15 arrow shafts to make headless arrows.")
             assertDoesNotContain(player.inv, FletchingObjRefs.headless_arrow)
         }
-
-    private fun fillInventory(with: org.rsmod.game.type.obj.ObjType) {
-        for (i in 2..27) {
-            player.inv[i] = InvObj(with, 1)
-        }
-    }
 }

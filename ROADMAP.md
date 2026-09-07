@@ -314,13 +314,21 @@ content/bosses/dagannoth-kings/
 - Routing/pathfinding
 - 20 standard elemental spells
 - Special attacks framework (3 weapons)
-- Woodcutting (full)
-- Thieving (pickpocketing men/women)
+- Woodcutting (full - code works, tests BLOCKED)
+- Thieving (pickpocketing men/women in Lumbridge - code works, tests BLOCKED)
 - Magic (spell attacks)
 - Lumbridge (11 NPCs, shops, spawns)
 - Canoe travel
 - Admin commands
 - Login system
+
+### Known Issues
+- **ALL integration tests BLOCKED** by `content.fletching_knife` type verifier error in `api/config/refs/BaseContent.kt:58`
+  - `BaseContent.kt` defines `val fletching_knife = find("fletching_knife")` but `fletching_knife` is not a valid item name in the `.sym` file
+  - The type verifier rejects `ContentGroupType` references against the item `.sym` file
+  - This blocks ALL skills' integration tests (fletching, thieving, woodcutting, and any future skills)
+  - Fix needed: remove or correct `fletching_knife` in `BaseContent.kt`
+- Fletching `invDel` silently fails in `withProtectedAccess` + `eventBus.publish` context
 
 ### Not Implemented
 - 18 skills (Attack, Defence, Strength, Hitpoints, Ranged, Fletching, Firemaking, Crafting, Smithing, Mining, Herblore, Agility, Slayer, Farming, Runecrafting, Hunter, Construction, Prayer content)

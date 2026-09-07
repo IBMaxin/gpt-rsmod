@@ -759,6 +759,8 @@ class MyConfigTest {
 .\gradlew.bat integration                          # run all integration tests
 ```
 
+**CRITICAL**: All integration tests currently BLOCKED by `content.fletching_knife` type verifier error in `api/config/refs/BaseContent.kt:58`. The `ContentReferences.find()` creates a `ContentGroupType` but the verifier validates it against the item `.sym` file where `fletching_knife` doesn't exist.
+
 ---
 
 ## Quick Reference: Common Imports

@@ -2,7 +2,7 @@ package org.rsmod.content.skills.fletching.configs
 
 import org.rsmod.api.type.refs.obj.ObjReferences
 
-internal object FletchingObjRefs : ObjReferences() {
+object FletchingObjRefs : ObjReferences() {
     // Tools
     val knife = find("knife")
 
