@@ -63,7 +63,7 @@ typealias must be made public (same fix as was done for `ardougne_locs`).
 ### Fix 1: NPC type mismatch in ThievingTrainerTest
 **Root cause:** The test used `npcTypeFactory.create { name = "ardougne_guard" }` which
 produces a new type with a different internal ID than the cache-resolved type.
-`onOpNpc1(ardougne_npcs.guard)` registered against the cache type — EventBus never matched.
+`onOpNpc-1(ardougne_npcs.guard)` registered against the cache type — EventBus never matched.
 
 **Fix:** Use `npcTypes[ardougne_npcs.guard]` to resolve via `TypeResolver`, matching the
 PickpocketTest pattern. Additionally, the cache NPC's `op[0]` was null, so `hasOp()` in
