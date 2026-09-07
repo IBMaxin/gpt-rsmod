@@ -16,3 +16,6 @@ Thumbs.db
 
 # Build artifacts
 compile_output.txt
+
+# OSRS cache (large binary files)
+rsmod-main/cache/
