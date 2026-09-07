@@ -233,7 +233,9 @@ class FletchingScriptTest {
                 eventBus.publish(this, event)
             }
 
-            assertMessageSent("You need 15 headless arrows and 15 bronze_arrowheads to make arrows.")
+            assertMessageSent(
+                "You need 15 headless arrows and 15 bronze_arrowheads to make arrows."
+            )
             assertDoesNotContain(player.inv, FletchingObjRefs.bronze_arrow)
         }
 

@@ -16,24 +16,44 @@ import org.rsmod.game.type.obj.UnpackedObjType
 import org.rsmod.plugin.scripts.PluginScript
 import org.rsmod.plugin.scripts.ScriptContext
 
-class FletchingBowString
-@Inject
-constructor(
-    private val objTypes: ObjTypeList,
-) : PluginScript() {
+class FletchingBowString @Inject constructor(private val objTypes: ObjTypeList) : PluginScript() {
     override fun ScriptContext.startup() {
-        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_shortbow) { stringBow(FletchingObjRefs.unstrung_shortbow) }
-        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_longbow) { stringBow(FletchingObjRefs.unstrung_longbow) }
-        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_oak_shortbow) { stringBow(FletchingObjRefs.unstrung_oak_shortbow) }
-        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_oak_longbow) { stringBow(FletchingObjRefs.unstrung_oak_longbow) }
-        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_willow_shortbow) { stringBow(FletchingObjRefs.unstrung_willow_shortbow) }
-        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_willow_longbow) { stringBow(FletchingObjRefs.unstrung_willow_longbow) }
-        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_maple_shortbow) { stringBow(FletchingObjRefs.unstrung_maple_shortbow) }
-        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_maple_longbow) { stringBow(FletchingObjRefs.unstrung_maple_longbow) }
-        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_yew_shortbow) { stringBow(FletchingObjRefs.unstrung_yew_shortbow) }
-        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_yew_longbow) { stringBow(FletchingObjRefs.unstrung_yew_longbow) }
-        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_magic_shortbow) { stringBow(FletchingObjRefs.unstrung_magic_shortbow) }
-        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_magic_longbow) { stringBow(FletchingObjRefs.unstrung_magic_longbow) }
+        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_shortbow) {
+            stringBow(FletchingObjRefs.unstrung_shortbow)
+        }
+        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_longbow) {
+            stringBow(FletchingObjRefs.unstrung_longbow)
+        }
+        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_oak_shortbow) {
+            stringBow(FletchingObjRefs.unstrung_oak_shortbow)
+        }
+        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_oak_longbow) {
+            stringBow(FletchingObjRefs.unstrung_oak_longbow)
+        }
+        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_willow_shortbow) {
+            stringBow(FletchingObjRefs.unstrung_willow_shortbow)
+        }
+        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_willow_longbow) {
+            stringBow(FletchingObjRefs.unstrung_willow_longbow)
+        }
+        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_maple_shortbow) {
+            stringBow(FletchingObjRefs.unstrung_maple_shortbow)
+        }
+        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_maple_longbow) {
+            stringBow(FletchingObjRefs.unstrung_maple_longbow)
+        }
+        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_yew_shortbow) {
+            stringBow(FletchingObjRefs.unstrung_yew_shortbow)
+        }
+        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_yew_longbow) {
+            stringBow(FletchingObjRefs.unstrung_yew_longbow)
+        }
+        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_magic_shortbow) {
+            stringBow(FletchingObjRefs.unstrung_magic_shortbow)
+        }
+        onOpHeldU(FletchingObjRefs.bow_string, FletchingObjRefs.unstrung_magic_longbow) {
+            stringBow(FletchingObjRefs.unstrung_magic_longbow)
+        }
     }
 
     private suspend fun ProtectedAccess.stringBow(unstrung: org.rsmod.game.type.obj.ObjType) {
@@ -76,6 +96,7 @@ constructor(
     companion object {
         val UnpackedObjType.fletchLevelReq: Int by objParam(params.levelrequire)
         val UnpackedObjType.fletchXp: Double by objXpParam(params.skill_xp)
-        val UnpackedObjType.fletchProduct: org.rsmod.game.type.obj.ObjType by objParam(params.skill_productitem)
+        val UnpackedObjType.fletchProduct: org.rsmod.game.type.obj.ObjType by
+            objParam(params.skill_productitem)
     }
 }

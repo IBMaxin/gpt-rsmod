@@ -6,21 +6,16 @@ import org.rsmod.api.invtx.invAdd
 import org.rsmod.api.invtx.invDel
 import org.rsmod.api.player.protect.ProtectedAccess
 import org.rsmod.api.player.stat.statAdvance
-import org.rsmod.api.script.onOpHeldU
 import org.rsmod.content.skills.fletching.configs.FletchingObjRefs
 import org.rsmod.game.type.obj.ObjType
 import org.rsmod.game.type.obj.ObjTypeList
 import org.rsmod.plugin.scripts.PluginScript
 import org.rsmod.plugin.scripts.ScriptContext
 
-class FletchingArrowShaft
-@Inject
-constructor(
-    private val objTypes: ObjTypeList,
-) : PluginScript() {
+class FletchingArrowShaft @Inject constructor(private val objTypes: ObjTypeList) : PluginScript() {
     override fun ScriptContext.startup() {
         /* Arrow shaft registrations are handled by FletchingBow to avoid
-           duplicate HeldUEvents keys (knife+log combos). */
+        duplicate HeldUEvents keys (knife+log combos). */
     }
 
     private suspend fun ProtectedAccess.makeShafts(log: ObjType) {

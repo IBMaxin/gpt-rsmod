@@ -12,11 +12,8 @@ import org.rsmod.game.type.obj.ObjTypeList
 import org.rsmod.plugin.scripts.PluginScript
 import org.rsmod.plugin.scripts.ScriptContext
 
-class FletchingHeadlessArrow
-@Inject
-constructor(
-    private val objTypes: ObjTypeList,
-) : PluginScript() {
+class FletchingHeadlessArrow @Inject constructor(private val objTypes: ObjTypeList) :
+    PluginScript() {
     override fun ScriptContext.startup() {
         onOpHeldU(FletchingObjRefs.feather, FletchingObjRefs.arrow_shaft) { makeHeadless() }
     }

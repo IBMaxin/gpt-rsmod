@@ -16,18 +16,24 @@ import org.rsmod.game.type.obj.UnpackedObjType
 import org.rsmod.plugin.scripts.PluginScript
 import org.rsmod.plugin.scripts.ScriptContext
 
-class FletchingBow
-@Inject
-constructor(
-    private val objTypes: ObjTypeList,
-) : PluginScript() {
+class FletchingBow @Inject constructor(private val objTypes: ObjTypeList) : PluginScript() {
     override fun ScriptContext.startup() {
         onOpHeldU(FletchingObjRefs.knife, FletchingObjRefs.logs) { makeBow(FletchingObjRefs.logs) }
-        onOpHeldU(FletchingObjRefs.knife, FletchingObjRefs.oak_logs) { makeBow(FletchingObjRefs.oak_logs) }
-        onOpHeldU(FletchingObjRefs.knife, FletchingObjRefs.willow_logs) { makeBow(FletchingObjRefs.willow_logs) }
-        onOpHeldU(FletchingObjRefs.knife, FletchingObjRefs.maple_logs) { makeBow(FletchingObjRefs.maple_logs) }
-        onOpHeldU(FletchingObjRefs.knife, FletchingObjRefs.yew_logs) { makeBow(FletchingObjRefs.yew_logs) }
-        onOpHeldU(FletchingObjRefs.knife, FletchingObjRefs.magic_logs) { makeBow(FletchingObjRefs.magic_logs) }
+        onOpHeldU(FletchingObjRefs.knife, FletchingObjRefs.oak_logs) {
+            makeBow(FletchingObjRefs.oak_logs)
+        }
+        onOpHeldU(FletchingObjRefs.knife, FletchingObjRefs.willow_logs) {
+            makeBow(FletchingObjRefs.willow_logs)
+        }
+        onOpHeldU(FletchingObjRefs.knife, FletchingObjRefs.maple_logs) {
+            makeBow(FletchingObjRefs.maple_logs)
+        }
+        onOpHeldU(FletchingObjRefs.knife, FletchingObjRefs.yew_logs) {
+            makeBow(FletchingObjRefs.yew_logs)
+        }
+        onOpHeldU(FletchingObjRefs.knife, FletchingObjRefs.magic_logs) {
+            makeBow(FletchingObjRefs.magic_logs)
+        }
     }
 
     private suspend fun ProtectedAccess.makeBow(log: org.rsmod.game.type.obj.ObjType) {
@@ -64,6 +70,7 @@ constructor(
     companion object {
         val UnpackedObjType.fletchLevelReq: Int by objParam(params.levelrequire)
         val UnpackedObjType.fletchXp: Double by objXpParam(params.skill_xp)
-        val UnpackedObjType.fletchProduct: org.rsmod.game.type.obj.ObjType by objParam(params.skill_productitem)
+        val UnpackedObjType.fletchProduct: org.rsmod.game.type.obj.ObjType by
+            objParam(params.skill_productitem)
     }
 }

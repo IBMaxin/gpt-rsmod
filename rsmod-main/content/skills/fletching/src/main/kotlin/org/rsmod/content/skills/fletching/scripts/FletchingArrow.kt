@@ -17,18 +17,26 @@ import org.rsmod.game.type.obj.UnpackedObjType
 import org.rsmod.plugin.scripts.PluginScript
 import org.rsmod.plugin.scripts.ScriptContext
 
-class FletchingArrow
-@Inject
-constructor(
-    private val objTypes: ObjTypeList,
-) : PluginScript() {
+class FletchingArrow @Inject constructor(private val objTypes: ObjTypeList) : PluginScript() {
     override fun ScriptContext.startup() {
-        onOpHeldU(FletchingObjRefs.headless_arrow, FletchingObjRefs.bronze_arrowheads) { makeArrow(FletchingObjRefs.bronze_arrowheads) }
-        onOpHeldU(FletchingObjRefs.headless_arrow, FletchingObjRefs.iron_arrowheads) { makeArrow(FletchingObjRefs.iron_arrowheads) }
-        onOpHeldU(FletchingObjRefs.headless_arrow, FletchingObjRefs.steel_arrowheads) { makeArrow(FletchingObjRefs.steel_arrowheads) }
-        onOpHeldU(FletchingObjRefs.headless_arrow, FletchingObjRefs.mithril_arrowheads) { makeArrow(FletchingObjRefs.mithril_arrowheads) }
-        onOpHeldU(FletchingObjRefs.headless_arrow, FletchingObjRefs.adamant_arrowheads) { makeArrow(FletchingObjRefs.adamant_arrowheads) }
-        onOpHeldU(FletchingObjRefs.headless_arrow, FletchingObjRefs.rune_arrowheads) { makeArrow(FletchingObjRefs.rune_arrowheads) }
+        onOpHeldU(FletchingObjRefs.headless_arrow, FletchingObjRefs.bronze_arrowheads) {
+            makeArrow(FletchingObjRefs.bronze_arrowheads)
+        }
+        onOpHeldU(FletchingObjRefs.headless_arrow, FletchingObjRefs.iron_arrowheads) {
+            makeArrow(FletchingObjRefs.iron_arrowheads)
+        }
+        onOpHeldU(FletchingObjRefs.headless_arrow, FletchingObjRefs.steel_arrowheads) {
+            makeArrow(FletchingObjRefs.steel_arrowheads)
+        }
+        onOpHeldU(FletchingObjRefs.headless_arrow, FletchingObjRefs.mithril_arrowheads) {
+            makeArrow(FletchingObjRefs.mithril_arrowheads)
+        }
+        onOpHeldU(FletchingObjRefs.headless_arrow, FletchingObjRefs.adamant_arrowheads) {
+            makeArrow(FletchingObjRefs.adamant_arrowheads)
+        }
+        onOpHeldU(FletchingObjRefs.headless_arrow, FletchingObjRefs.rune_arrowheads) {
+            makeArrow(FletchingObjRefs.rune_arrowheads)
+        }
     }
 
     private suspend fun ProtectedAccess.makeArrow(arrowheads: ObjType) {
@@ -75,7 +83,9 @@ constructor(
         invAdd(inv, product, 15)
         statAdvance(stats.fletching, xpPerArrow * 15)
 
-        mes("You attach ${tipType.lowercaseName} to the headless arrows, creating 15 ${objTypes[product].name}.")
+        mes(
+            "You attach ${tipType.lowercaseName} to the headless arrows, creating 15 ${objTypes[product].name}."
+        )
     }
 
     companion object {

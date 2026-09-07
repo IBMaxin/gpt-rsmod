@@ -12,55 +12,56 @@ import org.rsmod.content.skills.fletching.configs.FletchingObjRefs
 class FletchingConfigTest {
     @Test
     fun GameTestState.`verify all fletching item refs exist in cache`() = runBasicGameTest {
-        val refs = listOf(
-            FletchingObjRefs.knife,
-            FletchingObjRefs.logs,
-            FletchingObjRefs.oak_logs,
-            FletchingObjRefs.willow_logs,
-            FletchingObjRefs.maple_logs,
-            FletchingObjRefs.yew_logs,
-            FletchingObjRefs.magic_logs,
-            FletchingObjRefs.bow_string,
-            FletchingObjRefs.arrow_shaft,
-            FletchingObjRefs.feather,
-            FletchingObjRefs.headless_arrow,
-            FletchingObjRefs.bronze_arrowheads,
-            FletchingObjRefs.iron_arrowheads,
-            FletchingObjRefs.steel_arrowheads,
-            FletchingObjRefs.mithril_arrowheads,
-            FletchingObjRefs.adamant_arrowheads,
-            FletchingObjRefs.rune_arrowheads,
-            FletchingObjRefs.bronze_arrow,
-            FletchingObjRefs.iron_arrow,
-            FletchingObjRefs.steel_arrow,
-            FletchingObjRefs.mithril_arrow,
-            FletchingObjRefs.adamant_arrow,
-            FletchingObjRefs.rune_arrow,
-            FletchingObjRefs.unstrung_shortbow,
-            FletchingObjRefs.unstrung_longbow,
-            FletchingObjRefs.unstrung_oak_shortbow,
-            FletchingObjRefs.unstrung_oak_longbow,
-            FletchingObjRefs.unstrung_willow_shortbow,
-            FletchingObjRefs.unstrung_willow_longbow,
-            FletchingObjRefs.unstrung_maple_shortbow,
-            FletchingObjRefs.unstrung_maple_longbow,
-            FletchingObjRefs.unstrung_yew_shortbow,
-            FletchingObjRefs.unstrung_yew_longbow,
-            FletchingObjRefs.unstrung_magic_shortbow,
-            FletchingObjRefs.unstrung_magic_longbow,
-            FletchingObjRefs.shortbow,
-            FletchingObjRefs.longbow,
-            FletchingObjRefs.oak_shortbow,
-            FletchingObjRefs.oak_longbow,
-            FletchingObjRefs.willow_shortbow,
-            FletchingObjRefs.willow_longbow,
-            FletchingObjRefs.maple_shortbow,
-            FletchingObjRefs.maple_longbow,
-            FletchingObjRefs.yew_shortbow,
-            FletchingObjRefs.yew_longbow,
-            FletchingObjRefs.magic_shortbow,
-            FletchingObjRefs.magic_longbow,
-        )
+        val refs =
+            listOf(
+                FletchingObjRefs.knife,
+                FletchingObjRefs.logs,
+                FletchingObjRefs.oak_logs,
+                FletchingObjRefs.willow_logs,
+                FletchingObjRefs.maple_logs,
+                FletchingObjRefs.yew_logs,
+                FletchingObjRefs.magic_logs,
+                FletchingObjRefs.bow_string,
+                FletchingObjRefs.arrow_shaft,
+                FletchingObjRefs.feather,
+                FletchingObjRefs.headless_arrow,
+                FletchingObjRefs.bronze_arrowheads,
+                FletchingObjRefs.iron_arrowheads,
+                FletchingObjRefs.steel_arrowheads,
+                FletchingObjRefs.mithril_arrowheads,
+                FletchingObjRefs.adamant_arrowheads,
+                FletchingObjRefs.rune_arrowheads,
+                FletchingObjRefs.bronze_arrow,
+                FletchingObjRefs.iron_arrow,
+                FletchingObjRefs.steel_arrow,
+                FletchingObjRefs.mithril_arrow,
+                FletchingObjRefs.adamant_arrow,
+                FletchingObjRefs.rune_arrow,
+                FletchingObjRefs.unstrung_shortbow,
+                FletchingObjRefs.unstrung_longbow,
+                FletchingObjRefs.unstrung_oak_shortbow,
+                FletchingObjRefs.unstrung_oak_longbow,
+                FletchingObjRefs.unstrung_willow_shortbow,
+                FletchingObjRefs.unstrung_willow_longbow,
+                FletchingObjRefs.unstrung_maple_shortbow,
+                FletchingObjRefs.unstrung_maple_longbow,
+                FletchingObjRefs.unstrung_yew_shortbow,
+                FletchingObjRefs.unstrung_yew_longbow,
+                FletchingObjRefs.unstrung_magic_shortbow,
+                FletchingObjRefs.unstrung_magic_longbow,
+                FletchingObjRefs.shortbow,
+                FletchingObjRefs.longbow,
+                FletchingObjRefs.oak_shortbow,
+                FletchingObjRefs.oak_longbow,
+                FletchingObjRefs.willow_shortbow,
+                FletchingObjRefs.willow_longbow,
+                FletchingObjRefs.maple_shortbow,
+                FletchingObjRefs.maple_longbow,
+                FletchingObjRefs.yew_shortbow,
+                FletchingObjRefs.yew_longbow,
+                FletchingObjRefs.magic_shortbow,
+                FletchingObjRefs.magic_longbow,
+            )
         for (ref in refs) {
             val type = cacheTypes.objs[ref.id]
             assertNotNull(type, "Obj ref '${ref.internalName}' (id=${ref.id}) not found in cache")
@@ -77,14 +78,15 @@ class FletchingConfigTest {
 
     @Test
     fun GameTestState.`ensure all log types have required params`() = runBasicGameTest {
-        val logs = listOf(
-            FletchingObjRefs.logs,
-            FletchingObjRefs.oak_logs,
-            FletchingObjRefs.willow_logs,
-            FletchingObjRefs.maple_logs,
-            FletchingObjRefs.yew_logs,
-            FletchingObjRefs.magic_logs,
-        )
+        val logs =
+            listOf(
+                FletchingObjRefs.logs,
+                FletchingObjRefs.oak_logs,
+                FletchingObjRefs.willow_logs,
+                FletchingObjRefs.maple_logs,
+                FletchingObjRefs.yew_logs,
+                FletchingObjRefs.magic_logs,
+            )
         for (ref in logs) {
             val type = cacheTypes.objs[ref.id]
             assertNotNull(type, "Log ref '${ref.internalName}' not found in cache")
@@ -92,20 +94,24 @@ class FletchingConfigTest {
             assertNotNullContract(logParams)
             assertTrue(params.levelrequire in logParams, "${ref.internalName} missing levelrequire")
             assertTrue(params.skill_xp in logParams, "${ref.internalName} missing skill_xp")
-            assertTrue(params.skill_productitem in logParams, "${ref.internalName} missing skill_productitem")
+            assertTrue(
+                params.skill_productitem in logParams,
+                "${ref.internalName} missing skill_productitem",
+            )
         }
     }
 
     @Test
     fun GameTestState.`ensure all arrowhead types have required params`() = runBasicGameTest {
-        val arrowheads = listOf(
-            FletchingObjRefs.bronze_arrowheads,
-            FletchingObjRefs.iron_arrowheads,
-            FletchingObjRefs.steel_arrowheads,
-            FletchingObjRefs.mithril_arrowheads,
-            FletchingObjRefs.adamant_arrowheads,
-            FletchingObjRefs.rune_arrowheads,
-        )
+        val arrowheads =
+            listOf(
+                FletchingObjRefs.bronze_arrowheads,
+                FletchingObjRefs.iron_arrowheads,
+                FletchingObjRefs.steel_arrowheads,
+                FletchingObjRefs.mithril_arrowheads,
+                FletchingObjRefs.adamant_arrowheads,
+                FletchingObjRefs.rune_arrowheads,
+            )
         for (ref in arrowheads) {
             val type = cacheTypes.objs[ref.id]
             assertNotNull(type, "Arrowhead ref '${ref.internalName}' not found in cache")
@@ -113,26 +119,30 @@ class FletchingConfigTest {
             assertNotNullContract(tipParams)
             assertTrue(params.levelrequire in tipParams, "${ref.internalName} missing levelrequire")
             assertTrue(params.skill_xp in tipParams, "${ref.internalName} missing skill_xp")
-            assertTrue(params.skill_productitem in tipParams, "${ref.internalName} missing skill_productitem")
+            assertTrue(
+                params.skill_productitem in tipParams,
+                "${ref.internalName} missing skill_productitem",
+            )
         }
     }
 
     @Test
     fun GameTestState.`ensure all unstrung bow types have required params`() = runBasicGameTest {
-        val unstrungBows = listOf(
-            FletchingObjRefs.unstrung_shortbow,
-            FletchingObjRefs.unstrung_longbow,
-            FletchingObjRefs.unstrung_oak_shortbow,
-            FletchingObjRefs.unstrung_oak_longbow,
-            FletchingObjRefs.unstrung_willow_shortbow,
-            FletchingObjRefs.unstrung_willow_longbow,
-            FletchingObjRefs.unstrung_maple_shortbow,
-            FletchingObjRefs.unstrung_maple_longbow,
-            FletchingObjRefs.unstrung_yew_shortbow,
-            FletchingObjRefs.unstrung_yew_longbow,
-            FletchingObjRefs.unstrung_magic_shortbow,
-            FletchingObjRefs.unstrung_magic_longbow,
-        )
+        val unstrungBows =
+            listOf(
+                FletchingObjRefs.unstrung_shortbow,
+                FletchingObjRefs.unstrung_longbow,
+                FletchingObjRefs.unstrung_oak_shortbow,
+                FletchingObjRefs.unstrung_oak_longbow,
+                FletchingObjRefs.unstrung_willow_shortbow,
+                FletchingObjRefs.unstrung_willow_longbow,
+                FletchingObjRefs.unstrung_maple_shortbow,
+                FletchingObjRefs.unstrung_maple_longbow,
+                FletchingObjRefs.unstrung_yew_shortbow,
+                FletchingObjRefs.unstrung_yew_longbow,
+                FletchingObjRefs.unstrung_magic_shortbow,
+                FletchingObjRefs.unstrung_magic_longbow,
+            )
         for (ref in unstrungBows) {
             val type = cacheTypes.objs[ref.id]
             assertNotNull(type, "Unstrung bow ref '${ref.internalName}' not found in cache")
@@ -140,7 +150,10 @@ class FletchingConfigTest {
             assertNotNullContract(bowParams)
             assertTrue(params.levelrequire in bowParams, "${ref.internalName} missing levelrequire")
             assertTrue(params.skill_xp in bowParams, "${ref.internalName} missing skill_xp")
-            assertTrue(params.skill_productitem in bowParams, "${ref.internalName} missing skill_productitem")
+            assertTrue(
+                params.skill_productitem in bowParams,
+                "${ref.internalName} missing skill_productitem",
+            )
         }
     }
 
