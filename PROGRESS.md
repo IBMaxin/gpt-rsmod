@@ -1,6 +1,6 @@
 # Ardougne Thieving Area — Progress Summary
 
-## Current branch: `feature/ardougne-thieving`
+## Current branch: `master`
 
 ## Status: ALL 4 TESTS PASSING
 
