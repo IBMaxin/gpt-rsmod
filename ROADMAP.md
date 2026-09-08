@@ -321,17 +321,16 @@ content/bosses/dagannoth-kings/
 - Canoe travel
 - Admin commands
 - Login system
+- Slayer (skeleton task cow NPC editor, config test, death script)
 
 ### Known Issues
-- **ALL integration tests BLOCKED** by `content.fletching_knife` type verifier error in `api/config/refs/BaseContent.kt:58`
-  - `BaseContent.kt` defines `val fletching_knife = find("fletching_knife")` but `fletching_knife` is not a valid item name in the `.sym` file
-  - The type verifier rejects `ContentGroupType` references against the item `.sym` file
-  - This blocks ALL skills' integration tests (fletching, thieving, woodcutting, and any future skills)
-  - Fix needed: remove or correct `fletching_knife` in `BaseContent.kt`
-- Fletching `invDel` silently fails in `withProtectedAccess` + `eventBus.publish` context
+- Integration initialization is currently blocked by `content.fletching_knife` in `api/config/refs/BaseContent.kt:58`.
+  - `ContentReferences.find("fletching_knife")` creates a `ContentGroupType`, but `TypeVerifier` validates it against the item `.sym` file where that name does not exist.
+  - This prevents affected integration suites from initializing; fix is to remove or replace the invalid reference.
+- Fletching `invDel` can still fail in the `withProtectedAccess` + `eventBus.publish` path.
 
 ### Not Implemented
-- 18 skills (Attack, Defence, Strength, Hitpoints, Ranged, Fletching, Firemaking, Crafting, Smithing, Mining, Herblore, Agility, Slayer, Farming, Runecrafting, Hunter, Construction, Prayer content)
+- 17 skills (Attack, Defence, Strength, Hitpoints, Ranged, Fletching, Firemaking, Crafting, Smithing, Mining, Herblore, Agility, Farming, Runecrafting, Hunter, Construction, Prayer content)
 - Grand Exchange interface
 - Quests (0)
 - Bosses/Raids (0)

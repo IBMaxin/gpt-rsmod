@@ -79,6 +79,7 @@ content/skills/{name}/
 | Item refs | Per-module `find()` | `find("raw_shrimps")` |
 | Success rolls | `statRandom(stats.skill, low, high, invisibleLvls)` | OSRS formula: `(level + low) / 256` |
 | XP | `statAdvance(stats.skill, xp)` | XP in fine units (×10) |
+| Editor merge test | `NpcPluginBuilder` + `NpcTypeBuilder.merge` | Replicate editor logic, merge with cache type, assert paramMap |
 | Module | `PluginModule` + `InvisibleLevelMod` | Registers invisible level boosts |
 
 ### Phase 1 Skills (In Progress)
@@ -88,7 +89,8 @@ content/skills/{name}/
 | Cooking | Planning | `content/skills/cooking/PLAN.md` |
 | Firemaking | Planning | `content/skills/firemaking/PLAN.md` |
 | Fishing | Planning | `content/skills/fishing/PLAN.md` |
-| Fletching | Planning | `content/skills/fletching/PLAN.md` |
+| Fletching | In Progress | `content/skills/fletching/PLAN.md` |
+| Slayer | In Progress | `content/skills/slayer/` |
 
 ### TDD Workflow
 
@@ -113,3 +115,4 @@ content/skills/{name}/
 
 - `content/skills/thieving/` — Pickpocketing pattern (NPC-based)
 - `content/skills/woodcutting/` — Gathering pattern (LOC-based with timers)
+- `content/skills/slayer/` — NPC editor merge pattern (SlayerConfigTest)

@@ -85,8 +85,8 @@ class FletchingBowString @Inject constructor(private val objTypes: ObjTypeList) 
 
         actionDelay = 3
 
-        player.invDel(inv, unstrung, 1)
-        player.invDel(inv, FletchingObjRefs.bow_string, 1)
+        invDel(inv, unstrung, 1)
+        invDel(inv, FletchingObjRefs.bow_string, 1)
         invAdd(inv, product, 1)
         statAdvance(stats.fletching, xp)
 

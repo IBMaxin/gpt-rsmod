@@ -60,7 +60,7 @@ class FletchingBow @Inject constructor(private val objTypes: ObjTypeList) : Plug
 
         actionDelay = 3
 
-        player.invDel(inv, log, 1)
+        invDel(inv, log, 1)
         invAdd(inv, product, 1)
         statAdvance(stats.fletching, xp)
 

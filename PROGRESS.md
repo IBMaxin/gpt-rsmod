@@ -2,19 +2,20 @@
 
 ## Current branch: `master`
 
-## Status: ALL 4 TESTS PASSING
+## Status: TESTS BLOCKED AT INITIALIZATION
 
 ## What's Done
 All source files for the Ardougne Thieving Area are written under
-`rsmod-main/content/areas/city/ardougne/`. The module compiles and all
-4 integration tests pass.
+`rsmod-main/content/areas/city/ardougne/`. The module compiles, but both
+integration tests currently fail at initialization due to a global type
+verifier error (`BaseContent.kt:58` — `content.fletching_knife`).
 
-## Test results: 4/4 passing
+## Test results: 0/2 passing
 
-- `bakery stall requires level 5`
-- `full inventory blocks steal`
-- `successful steal gives xp and loot`
-- `talking to trainer opens dialogue`
+- `ThievingTrainerTest` — `initializationError`
+- `StallThievingTest` — `initializationError`
+
+Root cause: `GameServer.verifyTypeResolver()` rejects `ContentReferences.find("fletching_knife")` because the name is not present in the item `.sym` file. This is the same blocker affecting multiple content modules.
 
 ---
 

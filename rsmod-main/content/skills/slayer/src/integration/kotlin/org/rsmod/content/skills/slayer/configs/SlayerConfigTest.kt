@@ -3,23 +3,31 @@ package org.rsmod.content.skills.slayer.configs
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
-import org.rsmod.api.config.refs.content
-import org.rsmod.api.config.refs.params
 import org.rsmod.api.testing.GameTestState
 import org.rsmod.api.testing.assertions.assertNotNullContract
+import org.rsmod.api.type.script.dsl.NpcPluginBuilder
+import org.rsmod.game.type.npc.NpcTypeBuilder
 
 class SlayerConfigTest {
     @Test
-    fun GameTestState.`ensure all person npcs have slayer params`() = runBasicGameTest {
-        val people = cacheTypes.npcs.values.filter { it.isContentType(content.person) }
-        for (npc in people) {
-            val npcParams = npc.paramMap
-            assertNotNullContract(npcParams)
-            assertTrue(params.slayer_levelrequire in npcParams)
-            assertTrue(params.slayer_experience in npcParams)
-            // Default values as set in the editor
-            assertEquals(1, npcParams[params.slayer_levelrequire])
-            assertEquals(8, npcParams[params.slayer_experience])
-        }
+    fun GameTestState.`ensure slayer task npcs have slayer params`() = runBasicGameTest {
+        val baseCow = cacheTypes.npcs.values.first { it.internalName == "cow" }
+
+        val editorType =
+            NpcPluginBuilder("cow")
+                .apply {
+                    param[SlayerParams.levelrequire] = 1
+                    param[SlayerParams.experience] = 80
+                }
+                .build(id = -1)
+
+        val merged = NpcTypeBuilder.merge(editorType, baseCow)
+
+        val npcParams = merged.paramMap
+        assertNotNullContract(npcParams)
+        assertTrue(SlayerParams.levelrequire in npcParams)
+        assertTrue(SlayerParams.experience in npcParams)
+        assertEquals(1, npcParams[SlayerParams.levelrequire])
+        assertEquals(80, npcParams[SlayerParams.experience])
     }
 }

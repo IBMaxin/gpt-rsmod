@@ -24,7 +24,7 @@ class FletchingScriptTest {
                 eventBus.publish(this, event)
             }
 
-            assertMessageSent("You need a Fletching level of 5 to make unstrung_shortbow.")
+            assertMessageSent("You need a Fletching level of 1 to make Shortbow (u).")
         }
 
     @Test
@@ -146,7 +146,7 @@ class FletchingScriptTest {
                 eventBus.publish(this, event)
             }
 
-            assertMessageSent("You need a Fletching level of 1 to make bronze_arrow.")
+            assertMessageSent("You need a Fletching level of 1 to make Bronze arrow.")
         }
 
     @Test
@@ -190,7 +190,7 @@ class FletchingScriptTest {
                 eventBus.publish(this, event)
             }
 
-            assertMessageSent("Your inventory is too full to hold any more unstrung_shortbow.")
+            assertMessageSent("Your inventory is too full to hold any more shortbow (u).")
             assertDoesNotContain(player.inv, FletchingObjRefs.unstrung_shortbow)
         }
 
@@ -233,9 +233,7 @@ class FletchingScriptTest {
                 eventBus.publish(this, event)
             }
 
-            assertMessageSent(
-                "You need 15 headless arrows and 15 bronze_arrowheads to make arrows."
-            )
+            assertMessageSent("You need 15 headless arrows and 15 bronze arrowtips to make arrows.")
             assertDoesNotContain(player.inv, FletchingObjRefs.bronze_arrow)
         }
 

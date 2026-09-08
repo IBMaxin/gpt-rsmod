@@ -15,10 +15,20 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   - Stun + 1 HP damage on failure (1 tick stun)
   - Full inventory check
   - Module: `ThievingModule`, `ThievingLevelBoosts`, `PickpocketNpcEditor`, `Pickpocket`
-  - Tests: 10/10 passing (`ThievingConfigTest`, `PickpocketTest`)
+  - Tests: `ThievingConfigTest`, `PickpocketTest` (currently blocked by global type verifier error)
+- Slayer skill: skeleton task cow NPC editor (`content/skills/slayer/`)
+  - `SlayerNpcEditor` sets `slayer_levelrequire=1` and `slayer_experience=80` on cow NPC
+  - `SlayerNpcRefs` resolves master (Turael) and task (cow) NPCs
+  - `Slayer` script handles cow NPC death event
+  - Config test: `SlayerConfigTest` verifies editor merge produces correct paramMap
 
 ### Fixed
 - Removed `build.gradle.kts` from `_template` directories (bosses, npcs, skills) to fix Gradle project naming convention errors
+- Fletching: replaced `player.invDel()` with transactional `invDel()` in `FletchingBow` and `FletchingBowString`
+- Fletching: updated expected test messages to use actual cache names (`Shortbow (u)`, `Bronze arrow`, `bronze arrowtips`)
+- Slayer: fixed `SlayerConfigTest` to use `NpcPluginBuilder` + `NpcTypeBuilder.merge` instead of reading raw `cacheTypes.npcs`
+- Slayer: changed master NPC ref from generic `"person"` to `"slayer_master_1_tureal"`
+- Slayer: removed unused `NpcType` import from `SlayerNpcEditor`
 
 ### Known Issues
 - ALL integration tests fail with `RuntimeException` at `GameServer.kt:229` due to `content.fletching_knife` reference in `BaseContent.kt` that is not a valid item name in the `.sym` file
