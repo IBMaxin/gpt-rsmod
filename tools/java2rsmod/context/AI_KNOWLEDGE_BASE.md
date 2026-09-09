@@ -109,6 +109,128 @@ eventBus.publish(protectedAccess, heldUEvent)
 eventBus.subscribeSuspend(HeldUEvents.Type::class.java, key, handler)
 ```
 
+## Elvarg → RSMod API Mapping
+
+**CRITICAL: Use ONLY the real RSMod API names listed below. The Elvarg names on the left DO NOT EXIST in RSMod.**
+
+### Type References (use these, not Elvarg's Item/Animation/Graphic)
+
+| Elvarg (WRONG) | RSMod (CORRECT) | Example |
+|----------------|-----------------|---------|
+| `Item(id)` / `Item(id, amt)` | `objs.*` (ObjType) | `objs.dragon_longsword` |
+| `Animation(id, Priority.HIGH)` | `seqs.*` (SeqType) | `seqs.human_unarmedpunch` |
+| `Graphic(id, height, Priority.HIGH)` | `spotanims.*` (SpotanimType) | `spotanims.smokepuff` |
+| `Sound.ID` / `SoundManager` | `synths.*` (SynthType) | `synths.human_unarmedpunch` |
+| `PlayerRights.DEVELOPER` | Check player rights directly | See existing scripts |
+| `Boundary(x1, x2, y1, y2)` | `isWithinArea(CoordGrid(...), CoordGrid(...))` | Position-based checks |
+| `TimerKey.FOOD` | `timers.*` (TimerType) | `timers.stat_regen` |
+
+### Entity Methods (use these, not Elvarg's methods)
+
+| Elvarg (WRONG) | RSMod (CORRECT) | Notes |
+|----------------|-----------------|-------|
+| `player.performAnimation(anim)` | `anim(seqs.name)` | On ProtectedAccess |
+| `player.performGraphic(gfx)` | `spotanim(spotanims.name, height = 96)` | On ProtectedAccess |
+| `player.isPlayer()` / `getAsPlayer()` | `is Player` / `as Player` | Kotlin native type check |
+| `npc.isNpc()` / `getAsNpc()` | `is Npc` / `as Npc` | Kotlin native type check |
+| `player.sendMessage("text")` | `mes("text")` | Suspends coroutine |
+| `player.getPacketSender().sendString(id, text)` | `ifSetText(component, text)` | Interface text |
+| `player.getPacketSender().sendInterfaceRemoval()` | `ifClose()` | Close interface |
+| `player.getPacketSender().sendWalkableInterface(id)` | `ifSetWalkable(component)` | Walkable interface |
+| `SoundManager.sendSound(player, sound)` | `soundSynth(synths.name)` | On ProtectedAccess |
+| `player.getSkillManager().stopSkillable()` | Cancel current action | Context-dependent |
+| `player.getArea()` | Area check via `isWithinArea()` | Position-based |
+
+### Inventory Methods
+
+| Elvarg (WRONG) | RSMod (CORRECT) | Example |
+|----------------|-----------------|---------|
+| `player.getInventory().add(item, slot)` | `invAdd(inv, objs.name, count)` | `invAdd(inv, objs.bones, 1)` |
+| `player.getInventory().delete(item, slot)` | `invDel(inv, objs.name, count)` | `invDel(inv, objs.bones, 1)` |
+| `player.getInventory().contains(id)` | `invTotal(inv, objs.name) > 0` | `invTotal(inv, objs.coins) > 0` |
+| `player.getInventory().getCount(id)` | `invTotal(inv, objs.name)` | Returns count |
+
+### Stats & Skills
+
+| Elvarg (WRONG) | RSMod (CORRECT) | Example |
+|----------------|-----------------|---------|
+| `player.getSkillManager().getCurrentLevel(Skill.X)` | `stat(stats.x)` | `stat(stats.attack)` |
+| `player.getSkillManager().getMaxLevel(Skill.X)` | `statBase(stats.x)` | Base level |
+| `player.getSkillManager().addExperience(Skill.X, xp)` | `statAdvance(stats.x, xp)` | XP in fine units (x10) |
+| `CombatFactory.combatLevelDifference(a, b)` | Manual calculation | Check existing combat code |
+
+### Combat System
+
+| Elvarg (WRONG) | RSMod (CORRECT) | Notes |
+|----------------|-----------------|-------|
+| `extends MeleeCombatMethod` | `SpecialAttackMap` + `MeleeSpecialAttack` | Different class hierarchy |
+| `PendingHit` | `Hit` / `queueHit()` | `queueHit(source, delay, HitType.Melee, damage)` |
+| `CombatSpecial.drain(char, amount)` | Handled by SpecialAttackManager | Automatic on special activation |
+| `CombatSpecial.DRAGON_DAGGER` | `objs.dragon_longsword` + `special_seqs.*` | Type-based references |
+
+### Timers & Delays
+
+| Elvarg (WRONG) | RSMod (CORRECT) | Example |
+|----------------|-----------------|---------|
+| `player.getTimers().has(TimerKey.X)` | Check timer state | Context-dependent |
+| `player.getTimers().register(key, ticks)` | `timer(timers.name, cycles)` | `timer(timers.prayer_drain, 1)` |
+| `player.getTimers().extendOrRegister(key, ticks)` | `softTimer(timers.name, cycles)` | Non-blocking timer |
+| Attack delay | `actionDelay = mapClock + cycles` | On ProtectedAccess |
+
+### Sound System
+
+| Elvarg (WRONG) | RSMod (CORRECT) | Example |
+|----------------|-----------------|---------|
+| `Sound.FOOD_EAT` | `synths.*` | `synths.human_unarmedpunch` |
+| `SoundManager.sendSound(player, sound)` | `soundSynth(synths.name)` | On ProtectedAccess |
+| `Sound.DRAGON_DAGGER_SPECIAL` | `synths.*` | Look up in BaseSynths |
+
+### Special Attacks (full pattern)
+
+```kotlin
+// Elvarg pattern (WRONG):
+class DragonDaggerCombatMethod : MeleeCombatMethod() {
+    override fun start(character: Mobile, target: Mobile) {
+        CombatSpecial.drain(character, CombatSpecial.DRAGON_DAGGER.getDrainAmount())
+        character.performAnimation(ANIMATION)
+        character.performGraphic(GRAPHIC)
+        SoundManager.sendSound(character.getAsPlayer(), Sound.DRAGON_DAGGER_SPECIAL)
+    }
+}
+
+// RSMod pattern (CORRECT):
+class DragonDaggerSpecialAttack : SpecialAttackMap {
+    override fun SpecialAttackRepository.register(manager: SpecialAttackManager) {
+        registerMelee(objs.dragon_dagger, DragonDagger(manager))
+    }
+    private class DragonDagger(private val manager: SpecialAttackManager) : MeleeSpecialAttack {
+        override suspend fun ProtectedAccess.attack(target: PathingEntity, attack: CombatAttack.Melee) {
+            anim(special_seqs.dragon_dagger)
+            spotanim(spot = special_spots.dragon_dagger, slot = constants.spotanim_slot_combat, height = 96)
+            val damage = manager.rollMeleeDamage(source = this, target = target, attack = attack,
+                accuracyMultiplier = 1.25, maxHitMultiplier = 1.25, blockType = MeleeAttackType.Slash)
+            manager.giveCombatXp(this, target, attack, damage)
+            manager.queueMeleeHit(this, target, damage)
+            manager.continueCombat(this, target)
+        }
+    }
+}
+```
+
+### How to Reference Types
+
+All type references use `find("name")` and are defined in `api/config/refs/`:
+- `objs.*` — Item types (BaseObjs.kt)
+- `seqs.*` — Animation types (BaseSeqs.kt)
+- `spotanims.*` — Graphic types (BaseSpotanims.kt)
+- `synths.*` — Sound types (BaseSynths.kt)
+- `stats.*` — Stat types (BaseStats.kt)
+- `timers.*` — Timer types (BaseTimers.kt)
+- `invs.*` — Inventory types (BaseInvs.kt)
+- `components.*` — Interface components (BaseComponents.kt)
+
+**NEVER invent IDs. Always use find("name") references.**
+
 ## Integration Test Patterns
 
 ### Basic Pattern (item-on-item)

@@ -12,6 +12,54 @@ A rule-based scanner has already classified this file. Use this to guide your ou
 
 {{ANALYSIS_SUMMARY}}
 
+## RSMod API Quick Reference
+Use ONLY these real RSMod API names. The Elvarg names DO NOT EXIST.
+
+### Type References (use these, NOT Elvarg's Item/Animation/Graphic)
+- `objs.*` — Item types (e.g. `objs.dragon_longsword`) NOT `Item(id)`
+- `seqs.*` — Animation types (e.g. `seqs.human_unarmedpunch`) NOT `Animation(id)`
+- `spotanims.*` — Graphic types (e.g. `spotanims.smokepuff`) NOT `Graphic(id)`
+- `synths.*` — Sound types (e.g. `synths.human_unarmedpunch`) NOT `Sound.ID`
+- `stats.*` — Stat types (e.g. `stats.hitpoints`) NOT `Skill.HITPOINTS`
+- `timers.*` — Timer types (e.g. `timers.prayer_drain`) NOT `TimerKey.X`
+
+### Entity Methods (use these, NOT Elvarg's methods)
+- `anim(seqs.name)` — play animation NOT `performAnimation(Animation(id))`
+- `spotanim(spotanims.name, height = 96)` — play graphic NOT `performGraphic(Graphic(id))`
+- `is Player` / `as Player` — type check/cast NOT `isPlayer()` / `getAsPlayer()`
+- `is Npc` / `as Npc` — type check/cast NOT `isNpc()` / `getAsNpc()`
+- `mes("text")` — send message NOT `sendMessage()` or `getPacketSender().sendMessage()`
+- `ifSetText(component, text)` — interface text NOT `sendString(id, text)`
+- `ifClose()` — close interface NOT `sendInterfaceRemoval()`
+- `soundSynth(synths.name)` — play sound NOT `SoundManager.sendSound()`
+
+### Inventory (use these, NOT Elvarg's getInventory())
+- `invAdd(inv, objs.name, count)` — add items NOT `getInventory().add()`
+- `invDel(inv, objs.name, count)` — delete items NOT `getInventory().delete()`
+- `invTotal(inv, objs.name) > 0` — check item NOT `getInventory().contains()`
+- `invTotal(inv, objs.name)` — count items NOT `getInventory().getCount()`
+
+### Stats (use these, NOT Elvarg's getSkillManager())
+- `stat(stats.hitpoints)` — current level NOT `getSkillManager().getCurrentLevel()`
+- `statBase(stats.hitpoints)` — base level NOT `getSkillManager().getMaxLevel()`
+- `statAdvance(stats.cooking, xp)` — add XP NOT `getSkillManager().addExperience()`
+- `statRandom(stats.woodcutting, low, high, 0)` — success roll
+
+### Timers & Delays
+- `actionDelay = mapClock + cycles` — delay action NOT `getTimers().register()`
+- `timer(timers.name, cycles)` — start timer NOT `TimerKey.X`
+- `softTimer(timers.name, cycles)` — non-blocking timer
+
+### Combat (different class hierarchy entirely)
+- `SpecialAttackMap` + `MeleeSpecialAttack` — NOT `MeleeCombatMethod`
+- `queueHit(source, delay, HitType.Melee, damage)` — NOT `PendingHit`
+- `manager.rollMeleeDamage(...)` — damage calc
+- `manager.queueMeleeHit(this, target, damage)` — queue hit
+- `manager.continueCombat(this, target)` — resume combat
+
+### Areas
+- `isWithinArea(CoordGrid(...), CoordGrid(...))` — NOT `Area` subclass or `Boundary`
+
 ## Conversion Rules
 1. Remove ALL com.elvarg.* imports — they do not exist in RSMod.
 2. Every Java API call listed in the pre-analysis MUST be replaced with its RSMod equivalent
@@ -31,13 +79,34 @@ A rule-based scanner has already classified this file. Use this to guide your ou
 Return your response in EXACTLY two sections separated by the line `---NOTES---`.
 
 Section 1: The complete Kotlin file content (no markdown fences, just raw Kotlin).
-Section 2: A markdown conversion notes document with these headings:
-  ### Kept
-  - bullet list of logic/data ported directly
-  ### Replaced
-  - bullet list of Java APIs and what they were replaced with
-  ### Needs Manual Review
-  - bullet list of TODOs that require a human decision
+Section 2: A markdown conversion notes document using EXACTLY this template:
+
+### Conversion Summary
+- **Source:** {original filename}
+- **Output:** {converted filename}
+- **Type:** PluginScript / enum class / data class
+- **TODOs flagged:** {count}
+
+### Kept
+- {logic/data ported directly, unchanged}
+- ...
+
+### Replaced
+| Elvarg API | RSMod Equivalent | Notes |
+|------------|-----------------|-------|
+| {api call} | {replacement} | {any notes} |
+
+### Removed
+- {imports/code with no RSMod equivalent}
+
+### Needs Manual Review
+- [ ] {TODO item 1}
+- [ ] {TODO item 2}
+
+### Stats
+- Lines of Java: {n}
+- Lines of Kotlin: {n}
+- APIs replaced: {n}
 
 ## Java Source to Convert
 

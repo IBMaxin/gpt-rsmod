@@ -109,6 +109,128 @@ eventBus.publish(protectedAccess, heldUEvent)
 eventBus.subscribeSuspend(HeldUEvents.Type::class.java, key, handler)
 ```
 
+## Elvarg → RSMod API Mapping
+
+**CRITICAL: Use ONLY the real RSMod API names listed below. The Elvarg names on the left DO NOT EXIST in RSMod.**
+
+### Type References (use these, not Elvarg's Item/Animation/Graphic)
+
+| Elvarg (WRONG) | RSMod (CORRECT) | Example |
+|----------------|-----------------|---------|
+| `Item(id)` / `Item(id, amt)` | `objs.*` (ObjType) | `objs.dragon_longsword` |
+| `Animation(id, Priority.HIGH)` | `seqs.*` (SeqType) | `seqs.human_unarmedpunch` |
+| `Graphic(id, height, Priority.HIGH)` | `spotanims.*` (SpotanimType) | `spotanims.smokepuff` |
+| `Sound.ID` / `SoundManager` | `synths.*` (SynthType) | `synths.human_unarmedpunch` |
+| `PlayerRights.DEVELOPER` | Check player rights directly | See existing scripts |
+| `Boundary(x1, x2, y1, y2)` | `isWithinArea(CoordGrid(...), CoordGrid(...))` | Position-based checks |
+| `TimerKey.FOOD` | `timers.*` (TimerType) | `timers.stat_regen` |
+
+### Entity Methods (use these, not Elvarg's methods)
+
+| Elvarg (WRONG) | RSMod (CORRECT) | Notes |
+|----------------|-----------------|-------|
+| `player.performAnimation(anim)` | `anim(seqs.name)` | On ProtectedAccess |
+| `player.performGraphic(gfx)` | `spotanim(spotanims.name, height = 96)` | On ProtectedAccess |
+| `player.isPlayer()` / `getAsPlayer()` | `is Player` / `as Player` | Kotlin native type check |
+| `npc.isNpc()` / `getAsNpc()` | `is Npc` / `as Npc` | Kotlin native type check |
+| `player.sendMessage("text")` | `mes("text")` | Suspends coroutine |
+| `player.getPacketSender().sendString(id, text)` | `ifSetText(component, text)` | Interface text |
+| `player.getPacketSender().sendInterfaceRemoval()` | `ifClose()` | Close interface |
+| `player.getPacketSender().sendWalkableInterface(id)` | `ifSetWalkable(component)` | Walkable interface |
+| `SoundManager.sendSound(player, sound)` | `soundSynth(synths.name)` | On ProtectedAccess |
+| `player.getSkillManager().stopSkillable()` | Cancel current action | Context-dependent |
+| `player.getArea()` | Area check via `isWithinArea()` | Position-based |
+
+### Inventory Methods
+
+| Elvarg (WRONG) | RSMod (CORRECT) | Example |
+|----------------|-----------------|---------|
+| `player.getInventory().add(item, slot)` | `invAdd(inv, objs.name, count)` | `invAdd(inv, objs.bones, 1)` |
+| `player.getInventory().delete(item, slot)` | `invDel(inv, objs.name, count)` | `invDel(inv, objs.bones, 1)` |
+| `player.getInventory().contains(id)` | `invTotal(inv, objs.name) > 0` | `invTotal(inv, objs.coins) > 0` |
+| `player.getInventory().getCount(id)` | `invTotal(inv, objs.name)` | Returns count |
+
+### Stats & Skills
+
+| Elvarg (WRONG) | RSMod (CORRECT) | Example |
+|----------------|-----------------|---------|
+| `player.getSkillManager().getCurrentLevel(Skill.X)` | `stat(stats.x)` | `stat(stats.attack)` |
+| `player.getSkillManager().getMaxLevel(Skill.X)` | `statBase(stats.x)` | Base level |
+| `player.getSkillManager().addExperience(Skill.X, xp)` | `statAdvance(stats.x, xp)` | XP in fine units (x10) |
+| `CombatFactory.combatLevelDifference(a, b)` | Manual calculation | Check existing combat code |
+
+### Combat System
+
+| Elvarg (WRONG) | RSMod (CORRECT) | Notes |
+|----------------|-----------------|-------|
+| `extends MeleeCombatMethod` | `SpecialAttackMap` + `MeleeSpecialAttack` | Different class hierarchy |
+| `PendingHit` | `Hit` / `queueHit()` | `queueHit(source, delay, HitType.Melee, damage)` |
+| `CombatSpecial.drain(char, amount)` | Handled by SpecialAttackManager | Automatic on special activation |
+| `CombatSpecial.DRAGON_DAGGER` | `objs.dragon_longsword` + `special_seqs.*` | Type-based references |
+
+### Timers & Delays
+
+| Elvarg (WRONG) | RSMod (CORRECT) | Example |
+|----------------|-----------------|---------|
+| `player.getTimers().has(TimerKey.X)` | Check timer state | Context-dependent |
+| `player.getTimers().register(key, ticks)` | `timer(timers.name, cycles)` | `timer(timers.prayer_drain, 1)` |
+| `player.getTimers().extendOrRegister(key, ticks)` | `softTimer(timers.name, cycles)` | Non-blocking timer |
+| Attack delay | `actionDelay = mapClock + cycles` | On ProtectedAccess |
+
+### Sound System
+
+| Elvarg (WRONG) | RSMod (CORRECT) | Example |
+|----------------|-----------------|---------|
+| `Sound.FOOD_EAT` | `synths.*` | `synths.human_unarmedpunch` |
+| `SoundManager.sendSound(player, sound)` | `soundSynth(synths.name)` | On ProtectedAccess |
+| `Sound.DRAGON_DAGGER_SPECIAL` | `synths.*` | Look up in BaseSynths |
+
+### Special Attacks (full pattern)
+
+```kotlin
+// Elvarg pattern (WRONG):
+class DragonDaggerCombatMethod : MeleeCombatMethod() {
+    override fun start(character: Mobile, target: Mobile) {
+        CombatSpecial.drain(character, CombatSpecial.DRAGON_DAGGER.getDrainAmount())
+        character.performAnimation(ANIMATION)
+        character.performGraphic(GRAPHIC)
+        SoundManager.sendSound(character.getAsPlayer(), Sound.DRAGON_DAGGER_SPECIAL)
+    }
+}
+
+// RSMod pattern (CORRECT):
+class DragonDaggerSpecialAttack : SpecialAttackMap {
+    override fun SpecialAttackRepository.register(manager: SpecialAttackManager) {
+        registerMelee(objs.dragon_dagger, DragonDagger(manager))
+    }
+    private class DragonDagger(private val manager: SpecialAttackManager) : MeleeSpecialAttack {
+        override suspend fun ProtectedAccess.attack(target: PathingEntity, attack: CombatAttack.Melee) {
+            anim(special_seqs.dragon_dagger)
+            spotanim(spot = special_spots.dragon_dagger, slot = constants.spotanim_slot_combat, height = 96)
+            val damage = manager.rollMeleeDamage(source = this, target = target, attack = attack,
+                accuracyMultiplier = 1.25, maxHitMultiplier = 1.25, blockType = MeleeAttackType.Slash)
+            manager.giveCombatXp(this, target, attack, damage)
+            manager.queueMeleeHit(this, target, damage)
+            manager.continueCombat(this, target)
+        }
+    }
+}
+```
+
+### How to Reference Types
+
+All type references use `find("name")` and are defined in `api/config/refs/`:
+- `objs.*` — Item types (BaseObjs.kt)
+- `seqs.*` — Animation types (BaseSeqs.kt)
+- `spotanims.*` — Graphic types (BaseSpotanims.kt)
+- `synths.*` — Sound types (BaseSynths.kt)
+- `stats.*` — Stat types (BaseStats.kt)
+- `timers.*` — Timer types (BaseTimers.kt)
+- `invs.*` — Inventory types (BaseInvs.kt)
+- `components.*` — Interface components (BaseComponents.kt)
+
+**NEVER invent IDs. Always use find("name") references.**
+
 ## Integration Test Patterns
 
 ### Basic Pattern (item-on-item)
@@ -127,22 +249,20 @@ fun GameTestState.`test name`() = runGameTest(ScriptUnderTest::class) {
         eventBus.publish(this, event)
     }
 
-    advance(ticks = 1)  // Required: processes game cycle + flushes capture clients
+    advance(ticks = 1)
     assertContains(player.inv, expectedProduct)
     assertDoesNotContain(player.inv, consumedItem)
 }
 ```
 
-### Level-Check Pattern (no advance needed)
+### Level-Check Pattern
 ```kotlin
 @Test
 fun GameTestState.`requires level`() = runGameTest(Script::class) {
     player.stats[stats.fletching] = 0
-    // ... setup ...
     player.withProtectedAccess {
         eventBus.publish(this, event)
     }
-    // Do NOT call advance() — mes() is sent during withProtectedAccess
     assertMessageSent("You need a Fletching level of X to make Y.")
 }
 ```
@@ -152,113 +272,48 @@ fun GameTestState.`requires level`() = runGameTest(Script::class) {
 @Test
 fun GameTestState.`pickpocket test`() = runGameTest(Pickpocket::class) {
     player.stats[stats.thieving] = 1
-    random.next = 0  // Force success roll
+    random.next = 0
     player.opNpc3(npc)
     advance(ticks = 1)
     assertContains(player.inv, objs.coins)
 }
 ```
 
-### LOC Interaction Pattern
-```kotlin
-@Test
-fun GameTestState.`chop tree`() = runGameTest(WoodcuttingAxe::class) {
-    player.opLoc1(tree)
-    advance(ticks = 2)  // Animation plays
-    random.next = 0     // Force success
-    advance(ticks = 1)
-    assertContains(player.inv, logs)
-}
-```
-
 ## Critical Gotchas
 
-### 1. `advance()` clears capture clients FIRST
-```kotlin
-fun advance(ticks: Int = 1) {
-    repeat(ticks) {
-        clearCaptureClients()  // WIPES messages sent during withProtectedAccess
-        gameCycle.tick()
-        flushCaptureClients()  // Only captures messages from this tick
-    }
-}
-```
-**Solution**: Assert messages BEFORE `advance()`, or don't call `advance()` for level-check tests.
-
-### 2. `withProtectedAccess` doesn't await completion
-`ProtectedAccessLauncher.launch()` calls `player.launch { }` which starts a coroutine but returns immediately. The coroutine runs synchronously if no suspension point, but if `mes()` is called, the coroutine suspends.
-
-### 3. No `ifButtonT` test helper
-`GameTestScope` has `ifButtonD` (drag) and `ifButton()` (3-button) but NO `ifButtonT` (use-on-use). To test `onOpHeldU` scripts, use `eventBus.publish(this, HeldUEvents.Type(...))` directly.
-
-### 4. `invDel` transaction failure in event bus context
-**KNOWN BUG**: `invDel` silently fails when called inside a script handler triggered by `eventBus.publish` within `withProtectedAccess`, while `invAdd` works. See `FIX_FLETCHING_TESTS.md` for details. The `InvTransactionsTest` proves `invDel` works when called directly via `Player.invDel` extension in `runBasicGameTest`.
-
-### 5. `ObjTypeList.find()` returns `HashedObjType`
-Per-module refs should use `find("name")` — don't modify `BaseObjs.kt`. The `internalId` is lazy-computed from hash.
-
-### 6. `HashedObjType.equals()` compares `startHash` + `internalId`
-`UnpackedObjType` is a data class — equality is structural. Both types share `ObjType.id` → `internalId`.
-
-### 7. `inv.count()` requires `UnpackedObjType`
-`Inventory.count(objType: UnpackedObjType)` needs the unpacked type. Inject `ObjTypeList` and resolve via `objTypes[hashedObjType]`.
-
-### 8. `runGameTest` vs `runBasicGameTest`
-- `runGameTest(Script::class)` — creates full test scope with script registration via Guice
-- `runBasicGameTest` — simpler scope, uses `withPlayerInit` for direct inventory ops
-- Inventory transaction tests should use `runBasicGameTest`
-
-### 9. Global integration initialization failure
-Multiple modules currently fail at test initialization with `RuntimeException` at `GameServer.kt:229` because `BaseContent.kt:58` references `content.fletching_knife`, which is not present in the item `.sym` file. This prevents initialization of affected integration suites until that reference is removed or corrected.
-
-## Completed Skills
-
-| Skill | Status | Tests | Notes |
-|-------|--------|-------|-------|
-| Thieving | Committed (`b888050`) | 0/2 failing at initialization | Pickpocket pattern (NPC-based) |
-| Woodcutting | Committed | 0/2 failing at initialization | LOC gathering pattern with timers |
-| Fletching | In progress | 0/2 failing at initialization | Item-on-item pattern; also see `invDel` note below |
-| Cooking | Not started | — | Plan at `content/skills/cooking/PLAN.md` |
-| Firemaking | Not started | — | Plan at `content/skills/firemaking/PLAN.md` |
-| Fishing | Not started | — | Plan at `content/skills/fishing/PLAN.md` |
-
-**NOTE**: Affected integration suites currently fail at initialization because `BaseContent.kt:58` references `content.fletching_knife`, which is not defined in the item `.sym` file. This blocks initialization for multiple modules until the invalid reference is removed or replaced.
+1. `advance()` clears capture clients FIRST — assert messages BEFORE advance() for level-check tests.
+2. `withProtectedAccess` doesn't await completion — coroutine starts but returns immediately.
+3. No `ifButtonT` test helper — use `eventBus.publish(this, HeldUEvents.Type(...))` directly.
+4. `invDel` silently fails inside eventBus.publish within withProtectedAccess (known bug).
+5. `ObjTypeList.find()` returns `HashedObjType` — per-module refs use find("name").
+6. `inv.count()` requires `UnpackedObjType` — inject ObjTypeList and resolve first.
 
 ## File Conventions
 
-| File | Purpose | Example |
-|------|---------|---------|
-| `{Skill}ObjRefs.kt` | Per-module item refs via `find()` | `FletchingObjRefs.kt` |
-| `{Skill}Params.kt` | Server-only param definitions | `FletchingParams.kt` |
-| `{Skill}Module.kt` | PluginModule + InvisibleLevelMod | `FletchingModule.kt` |
-| `{Skill}LevelBoosts.kt` | Invisible level boosts (cape) | `FletchingLevelBoosts.kt` |
-| `{Skill}Script.kt` | PluginScript with startup() | `FletchingBow.kt` |
-| `{Skill}ConfigTest.kt` | Verify all refs resolve against cache | `FletchingConfigTest.kt` |
-| `{Skill}ScriptTest.kt` | Integration tests for scripts | `FletchingScriptTest.kt` |
+| File | Purpose |
+|------|---------|
+| `{Skill}ObjRefs.kt` | Per-module item refs via find() |
+| `{Skill}Params.kt` | Server-only param definitions |
+| `{Skill}Module.kt` | PluginModule + InvisibleLevelMod |
+| `{Skill}LevelBoosts.kt` | Invisible level boosts (cape) |
+| `{Skill}Script.kt` | PluginScript with startup() |
+| `{Skill}ConfigTest.kt` | Verify all refs resolve against cache |
+| `{Skill}ScriptTest.kt` | Integration tests for scripts |
 
 ## Module Pattern
 
 ```
 content/skills/{name}/
-├── build.gradle.kts          # base-conventions + integration-test-suite plugins
-├── PLAN.md                   # Full design doc
+├── build.gradle.kts
+├── PLAN.md
 ├── src/main/kotlin/.../
-│   ├── {Name}Module.kt       # PluginModule binding
-│   ├── {Name}LevelBoosts.kt  # InvisibleLevelMod for cape boost
-│   ├── {Name}ObjRefs.kt      # Item/NPC/LOC references
-│   ├── {Name}Params.kt       # Param definitions
+│   ├── {Name}Module.kt
+│   ├── {Name}LevelBoosts.kt
+│   ├── {Name}ObjRefs.kt
+│   ├── {Name}Params.kt
 │   └── scripts/
-│       ├── {Name}Script1.kt  # Script implementations
-│       └── {Name}Script2.kt
+│       └── {Name}Script.kt
 └── src/integration/kotlin/.../
-    ├── {Name}ConfigTest.kt   # Config validation
-    └── scripts/{Name}ScriptTest.kt  # Script integration tests
+    ├── {Name}ConfigTest.kt
+    └── scripts/{Name}ScriptTest.kt
 ```
-
-## Useful Paths
-
-- Cache symbols: `.data/symbols/obj.sym` (tab-separated `id\tname`)
-- Git: repo initialized, initial commit `93263f5`, thieving `b888050`, framework `df42099`
-- Planning docs: `DEVELOPMENT.md`, `CHANGELOG.md`, `ROADMAP.md`
-- Skill templates: `_template/skills/`, `_template/bosses/`, `_template/npcs/`
-- Existing skills (reference): `content/skills/thieving/`, `content/skills/woodcutting/`

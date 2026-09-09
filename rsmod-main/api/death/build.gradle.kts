@@ -1,5 +1,6 @@
 plugins {
     id("base-conventions")
+    id("integration-test-suite")
 }
 
 kotlin {
@@ -18,4 +19,5 @@ dependencies {
     implementation(projects.api.type.typeReferences)
     implementation(projects.engine.game)
     implementation(projects.engine.map)
+    implementation(projects.engine.plugin)
 }

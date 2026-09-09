@@ -1,0 +1,774 @@
+2026-09-08 15:10:53 [DEBUG   ] java2rsmod: Pre-analysing Sound.java
+2026-09-08 15:10:53 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 15:11:00 [DEBUG   ] java2rsmod: Pre-analysing Sound.java
+2026-09-08 15:11:00 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 15:11:00 [DEBUG   ] java2rsmod: Pre-analysing Presetable.java
+2026-09-08 15:11:00 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=2
+2026-09-08 15:11:00 [DEBUG   ] java2rsmod: Pre-analysing DragonDaggerCombatMethod.java
+2026-09-08 15:11:00 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 15:11:00 [DEBUG   ] java2rsmod: Pre-analysing WildernessArea.java
+2026-09-08 15:11:00 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=True death=True | elvarg APIs=13
+2026-09-08 15:11:07 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:11:07 [INFO    ] java2rsmod: java2rsmod starting — model: mistral
+2026-09-08 15:11:07 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:11:07 [DEBUG   ] java2rsmod: Knowledge base: 6939 chars
+2026-09-08 15:11:07 [DEBUG   ] java2rsmod: Prompt template: 3955 chars
+2026-09-08 15:11:07 [INFO    ] java2rsmod: Files to convert: 1
+2026-09-08 15:11:07 [INFO    ] java2rsmod: Output directory: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1511
+2026-09-08 15:11:07 [INFO    ] java2rsmod: Processing: Sound.java
+2026-09-08 15:11:07 [DEBUG   ] java2rsmod: Pre-analysing Sound.java
+2026-09-08 15:11:07 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 15:11:07 [DEBUG   ] java2rsmod: Prompt length: 16868 characters
+2026-09-08 15:11:07 [DEBUG   ] java2rsmod: Calling Ollama at http://localhost:11434/api/generate with model 'mistral'
+2026-09-08 15:11:07 [DEBUG   ] httpcore.connection: connect_tcp.started host='localhost' port=11434 local_address=None timeout=120 socket_options=None
+2026-09-08 15:11:11 [DEBUG   ] httpcore.connection: connect_tcp.failed exception=ConnectError(ConnectionRefusedError(10061, 'No connection could be made because the target machine actively refused it', None, 10061, None))
+2026-09-08 15:11:11 [ERROR   ] java2rsmod: Ollama error for Sound.java: Could not connect to Ollama at http://localhost:11434.
+Make sure Ollama is running: open a terminal and run 'ollama serve'.
+2026-09-08 15:11:11 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:11:11 [INFO    ] java2rsmod: Done. Success: 0  Failed: 1  Output: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1511
+2026-09-08 15:11:11 [WARNING ] java2rsmod: 1 file(s) had errors — check logs above.
+2026-09-08 15:11:11 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:50:54 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:50:54 [INFO    ] java2rsmod: java2rsmod starting — model: qwen2.5-coder:7b
+2026-09-08 15:50:54 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:50:54 [DEBUG   ] java2rsmod: Knowledge base: 6939 chars
+2026-09-08 15:50:54 [DEBUG   ] java2rsmod: Prompt template: 3955 chars
+2026-09-08 15:50:54 [INFO    ] java2rsmod: Files to convert: 1
+2026-09-08 15:50:54 [INFO    ] java2rsmod: Output directory: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1550
+2026-09-08 15:50:54 [INFO    ] java2rsmod: Processing: Sound.java
+2026-09-08 15:50:54 [DEBUG   ] java2rsmod: Pre-analysing Sound.java
+2026-09-08 15:50:54 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 15:50:54 [DEBUG   ] java2rsmod: Prompt length: 16868 characters
+2026-09-08 15:50:54 [DEBUG   ] java2rsmod: Calling Ollama at http://localhost:11434/api/generate with model 'qwen2.5-coder:7b'
+2026-09-08 15:50:55 [DEBUG   ] httpcore.connection: connect_tcp.started host='localhost' port=11434 local_address=None timeout=120 socket_options=None
+2026-09-08 15:50:57 [DEBUG   ] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000025AAF580EC0>
+2026-09-08 15:50:57 [DEBUG   ] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-09-08 15:50:57 [DEBUG   ] httpcore.http11: send_request_headers.complete
+2026-09-08 15:50:57 [DEBUG   ] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-09-08 15:50:57 [DEBUG   ] httpcore.http11: send_request_body.complete
+2026-09-08 15:50:57 [DEBUG   ] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-09-08 15:51:42 [DEBUG   ] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Date', b'Tue, 08 Sep 2026 22:51:42 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-09-08 15:51:42 [INFO    ] httpx: HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-08 15:51:42 [DEBUG   ] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-09-08 15:51:42 [DEBUG   ] httpcore.http11: receive_response_body.complete
+2026-09-08 15:51:42 [DEBUG   ] httpcore.http11: response_closed.started
+2026-09-08 15:51:42 [DEBUG   ] httpcore.http11: response_closed.complete
+2026-09-08 15:51:42 [DEBUG   ] httpcore.connection: close.started
+2026-09-08 15:51:42 [DEBUG   ] httpcore.connection: close.complete
+2026-09-08 15:51:42 [INFO    ] java2rsmod:   Written: Sound.kt
+2026-09-08 15:51:42 [INFO    ] java2rsmod:   Written: Sound_notes.md
+2026-09-08 15:51:42 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:51:42 [INFO    ] java2rsmod: Done. Success: 1  Failed: 0  Output: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1550
+2026-09-08 15:51:42 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:51:59 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:51:59 [INFO    ] java2rsmod: java2rsmod starting — model: qwen2.5-coder:7b
+2026-09-08 15:51:59 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:51:59 [DEBUG   ] java2rsmod: Knowledge base: 6939 chars
+2026-09-08 15:51:59 [DEBUG   ] java2rsmod: Prompt template: 3955 chars
+2026-09-08 15:51:59 [INFO    ] java2rsmod: Files to convert: 1
+2026-09-08 15:51:59 [INFO    ] java2rsmod: Output directory: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1551
+2026-09-08 15:51:59 [INFO    ] java2rsmod: Processing: Food.java
+2026-09-08 15:51:59 [DEBUG   ] java2rsmod: Pre-analysing Food.java
+2026-09-08 15:51:59 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=15
+2026-09-08 15:51:59 [DEBUG   ] java2rsmod: Prompt length: 18502 characters
+2026-09-08 15:51:59 [DEBUG   ] java2rsmod: Calling Ollama at http://localhost:11434/api/generate with model 'qwen2.5-coder:7b'
+2026-09-08 15:51:59 [DEBUG   ] httpcore.connection: connect_tcp.started host='localhost' port=11434 local_address=None timeout=120 socket_options=None
+2026-09-08 15:52:01 [DEBUG   ] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000021DF74C0EC0>
+2026-09-08 15:52:01 [DEBUG   ] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-09-08 15:52:01 [DEBUG   ] httpcore.http11: send_request_headers.complete
+2026-09-08 15:52:01 [DEBUG   ] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-09-08 15:52:01 [DEBUG   ] httpcore.http11: send_request_body.complete
+2026-09-08 15:52:01 [DEBUG   ] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-09-08 15:52:28 [DEBUG   ] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Date', b'Tue, 08 Sep 2026 22:52:28 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-09-08 15:52:28 [INFO    ] httpx: HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-08 15:52:28 [DEBUG   ] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-09-08 15:52:28 [DEBUG   ] httpcore.http11: receive_response_body.complete
+2026-09-08 15:52:28 [DEBUG   ] httpcore.http11: response_closed.started
+2026-09-08 15:52:28 [DEBUG   ] httpcore.http11: response_closed.complete
+2026-09-08 15:52:28 [DEBUG   ] httpcore.connection: close.started
+2026-09-08 15:52:28 [DEBUG   ] httpcore.connection: close.complete
+2026-09-08 15:52:28 [INFO    ] java2rsmod:   Written: Food.kt
+2026-09-08 15:52:28 [INFO    ] java2rsmod:   Written: Food_notes.md
+2026-09-08 15:52:28 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:52:28 [INFO    ] java2rsmod: Done. Success: 1  Failed: 0  Output: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1551
+2026-09-08 15:52:28 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:53:17 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:53:17 [INFO    ] java2rsmod: java2rsmod starting — model: qwen2.5-coder:7b
+2026-09-08 15:53:17 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:53:17 [DEBUG   ] java2rsmod: Knowledge base: 6939 chars
+2026-09-08 15:53:17 [DEBUG   ] java2rsmod: Prompt template: 3955 chars
+2026-09-08 15:53:17 [INFO    ] java2rsmod: Files to convert: 1
+2026-09-08 15:53:17 [INFO    ] java2rsmod: Output directory: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1553
+2026-09-08 15:53:17 [INFO    ] java2rsmod: Processing: DragonDaggerCombatMethod.java
+2026-09-08 15:53:17 [DEBUG   ] java2rsmod: Pre-analysing DragonDaggerCombatMethod.java
+2026-09-08 15:53:17 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 15:53:17 [DEBUG   ] java2rsmod: Prompt length: 12907 characters
+2026-09-08 15:53:17 [DEBUG   ] java2rsmod: Calling Ollama at http://localhost:11434/api/generate with model 'qwen2.5-coder:7b'
+2026-09-08 15:53:17 [DEBUG   ] httpcore.connection: connect_tcp.started host='localhost' port=11434 local_address=None timeout=120 socket_options=None
+2026-09-08 15:53:19 [DEBUG   ] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001E4C1850EC0>
+2026-09-08 15:53:19 [DEBUG   ] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-09-08 15:53:19 [DEBUG   ] httpcore.http11: send_request_headers.complete
+2026-09-08 15:53:19 [DEBUG   ] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-09-08 15:53:19 [DEBUG   ] httpcore.http11: send_request_body.complete
+2026-09-08 15:53:19 [DEBUG   ] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-09-08 15:53:29 [DEBUG   ] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Date', b'Tue, 08 Sep 2026 22:53:29 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-09-08 15:53:29 [INFO    ] httpx: HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-08 15:53:29 [DEBUG   ] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-09-08 15:53:29 [DEBUG   ] httpcore.http11: receive_response_body.complete
+2026-09-08 15:53:29 [DEBUG   ] httpcore.http11: response_closed.started
+2026-09-08 15:53:29 [DEBUG   ] httpcore.http11: response_closed.complete
+2026-09-08 15:53:29 [DEBUG   ] httpcore.connection: close.started
+2026-09-08 15:53:29 [DEBUG   ] httpcore.connection: close.complete
+2026-09-08 15:53:29 [INFO    ] java2rsmod:   Written: DragonDaggerCombatMethod.kt
+2026-09-08 15:53:29 [INFO    ] java2rsmod:   Written: DragonDaggerCombatMethod_notes.md
+2026-09-08 15:53:29 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:53:29 [INFO    ] java2rsmod: Done. Success: 1  Failed: 0  Output: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1553
+2026-09-08 15:53:29 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:54:05 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:54:05 [INFO    ] java2rsmod: java2rsmod starting — model: gpt-oss:latest
+2026-09-08 15:54:05 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:54:05 [DEBUG   ] java2rsmod: Knowledge base: 6939 chars
+2026-09-08 15:54:05 [DEBUG   ] java2rsmod: Prompt template: 3955 chars
+2026-09-08 15:54:05 [INFO    ] java2rsmod: Files to convert: 1
+2026-09-08 15:54:05 [INFO    ] java2rsmod: Output directory: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1554
+2026-09-08 15:54:05 [INFO    ] java2rsmod: Processing: DragonDaggerCombatMethod.java
+2026-09-08 15:54:05 [DEBUG   ] java2rsmod: Pre-analysing DragonDaggerCombatMethod.java
+2026-09-08 15:54:05 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 15:54:05 [DEBUG   ] java2rsmod: Prompt length: 12907 characters
+2026-09-08 15:54:05 [DEBUG   ] java2rsmod: Calling Ollama at http://localhost:11434/api/generate with model 'gpt-oss:latest'
+2026-09-08 15:54:05 [DEBUG   ] httpcore.connection: connect_tcp.started host='localhost' port=11434 local_address=None timeout=120 socket_options=None
+2026-09-08 15:54:07 [DEBUG   ] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000013B4BA40EC0>
+2026-09-08 15:54:07 [DEBUG   ] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-09-08 15:54:07 [DEBUG   ] httpcore.http11: send_request_headers.complete
+2026-09-08 15:54:07 [DEBUG   ] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-09-08 15:54:07 [DEBUG   ] httpcore.http11: send_request_body.complete
+2026-09-08 15:54:07 [DEBUG   ] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-09-08 15:55:31 [DEBUG   ] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Date', b'Tue, 08 Sep 2026 22:55:31 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-09-08 15:55:31 [INFO    ] httpx: HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-08 15:55:31 [DEBUG   ] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-09-08 15:55:31 [DEBUG   ] httpcore.http11: receive_response_body.complete
+2026-09-08 15:55:31 [DEBUG   ] httpcore.http11: response_closed.started
+2026-09-08 15:55:31 [DEBUG   ] httpcore.http11: response_closed.complete
+2026-09-08 15:55:31 [DEBUG   ] httpcore.connection: close.started
+2026-09-08 15:55:31 [DEBUG   ] httpcore.connection: close.complete
+2026-09-08 15:55:31 [INFO    ] java2rsmod:   Written: DragonDaggerCombatMethod.kt
+2026-09-08 15:55:31 [INFO    ] java2rsmod:   Written: DragonDaggerCombatMethod_notes.md
+2026-09-08 15:55:31 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:55:31 [INFO    ] java2rsmod: Done. Success: 1  Failed: 0  Output: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1554
+2026-09-08 15:55:31 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:55:50 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:55:50 [INFO    ] java2rsmod: java2rsmod starting — model: gpt-oss:latest
+2026-09-08 15:55:50 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:55:50 [DEBUG   ] java2rsmod: Knowledge base: 6939 chars
+2026-09-08 15:55:50 [DEBUG   ] java2rsmod: Prompt template: 3955 chars
+2026-09-08 15:55:50 [INFO    ] java2rsmod: Files to convert: 1
+2026-09-08 15:55:50 [INFO    ] java2rsmod: Output directory: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1555
+2026-09-08 15:55:50 [INFO    ] java2rsmod: Processing: Food.java
+2026-09-08 15:55:50 [DEBUG   ] java2rsmod: Pre-analysing Food.java
+2026-09-08 15:55:50 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=15
+2026-09-08 15:55:50 [DEBUG   ] java2rsmod: Prompt length: 18502 characters
+2026-09-08 15:55:50 [DEBUG   ] java2rsmod: Calling Ollama at http://localhost:11434/api/generate with model 'gpt-oss:latest'
+2026-09-08 15:55:50 [DEBUG   ] httpcore.connection: connect_tcp.started host='localhost' port=11434 local_address=None timeout=120 socket_options=None
+2026-09-08 15:55:52 [DEBUG   ] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000026F494D0EC0>
+2026-09-08 15:55:52 [DEBUG   ] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-09-08 15:55:52 [DEBUG   ] httpcore.http11: send_request_headers.complete
+2026-09-08 15:55:52 [DEBUG   ] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-09-08 15:55:52 [DEBUG   ] httpcore.http11: send_request_body.complete
+2026-09-08 15:55:52 [DEBUG   ] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-09-08 15:57:52 [DEBUG   ] httpcore.http11: receive_response_headers.failed exception=ReadTimeout(TimeoutError('timed out'))
+2026-09-08 15:57:52 [DEBUG   ] httpcore.http11: response_closed.started
+2026-09-08 15:57:52 [DEBUG   ] httpcore.http11: response_closed.complete
+2026-09-08 15:57:52 [ERROR   ] java2rsmod: Ollama error for Food.java: Ollama did not respond within 120s. Try a smaller model or increase OLLAMA_TIMEOUT_SECONDS in config.py.
+2026-09-08 15:57:52 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:57:52 [INFO    ] java2rsmod: Done. Success: 0  Failed: 1  Output: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1555
+2026-09-08 15:57:52 [WARNING ] java2rsmod: 1 file(s) had errors — check logs above.
+2026-09-08 15:57:52 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:59:02 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:59:02 [INFO    ] java2rsmod: java2rsmod starting — model: gpt-oss:latest
+2026-09-08 15:59:02 [INFO    ] java2rsmod: ============================================================
+2026-09-08 15:59:02 [DEBUG   ] java2rsmod: Knowledge base: 6939 chars
+2026-09-08 15:59:02 [DEBUG   ] java2rsmod: Prompt template: 3955 chars
+2026-09-08 15:59:02 [INFO    ] java2rsmod: Files to convert: 1
+2026-09-08 15:59:02 [INFO    ] java2rsmod: Output directory: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1559
+2026-09-08 15:59:02 [INFO    ] java2rsmod: Processing: Food.java
+2026-09-08 15:59:02 [DEBUG   ] java2rsmod: Pre-analysing Food.java
+2026-09-08 15:59:02 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=15
+2026-09-08 15:59:02 [DEBUG   ] java2rsmod: Prompt length: 18502 characters
+2026-09-08 15:59:02 [DEBUG   ] java2rsmod: Calling Ollama at http://localhost:11434/api/generate with model 'gpt-oss:latest'
+2026-09-08 15:59:03 [DEBUG   ] httpcore.connection: connect_tcp.started host='localhost' port=11434 local_address=None timeout=300 socket_options=None
+2026-09-08 15:59:05 [DEBUG   ] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000020FFCC90EC0>
+2026-09-08 15:59:05 [DEBUG   ] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-09-08 15:59:05 [DEBUG   ] httpcore.http11: send_request_headers.complete
+2026-09-08 15:59:05 [DEBUG   ] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-09-08 15:59:05 [DEBUG   ] httpcore.http11: send_request_body.complete
+2026-09-08 15:59:05 [DEBUG   ] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-09-08 16:01:14 [DEBUG   ] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Date', b'Tue, 08 Sep 2026 23:01:14 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-09-08 16:01:14 [INFO    ] httpx: HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-08 16:01:14 [DEBUG   ] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-09-08 16:01:14 [DEBUG   ] httpcore.http11: receive_response_body.complete
+2026-09-08 16:01:14 [DEBUG   ] httpcore.http11: response_closed.started
+2026-09-08 16:01:14 [DEBUG   ] httpcore.http11: response_closed.complete
+2026-09-08 16:01:14 [DEBUG   ] httpcore.connection: close.started
+2026-09-08 16:01:14 [DEBUG   ] httpcore.connection: close.complete
+2026-09-08 16:01:14 [INFO    ] java2rsmod:   Written: Food.kt
+2026-09-08 16:01:14 [INFO    ] java2rsmod:   Written: Food_notes.md
+2026-09-08 16:01:14 [INFO    ] java2rsmod: ============================================================
+2026-09-08 16:01:14 [INFO    ] java2rsmod: Done. Success: 1  Failed: 0  Output: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1559
+2026-09-08 16:01:14 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:00:04 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:00:04 [INFO    ] java2rsmod: java2rsmod starting — model: gpt-oss:latest
+2026-09-08 18:00:04 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:00:04 [DEBUG   ] java2rsmod: Knowledge base: 13325 chars
+2026-09-08 18:00:04 [DEBUG   ] java2rsmod: Prompt template: 5021 chars
+2026-09-08 18:00:04 [INFO    ] java2rsmod: Files to convert: 1
+2026-09-08 18:00:04 [INFO    ] java2rsmod: Output directory: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1800
+2026-09-08 18:00:04 [INFO    ] java2rsmod: Processing: DragonDaggerCombatMethod.java
+2026-09-08 18:00:04 [DEBUG   ] java2rsmod: Pre-analysing DragonDaggerCombatMethod.java
+2026-09-08 18:00:04 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:00:04 [DEBUG   ] java2rsmod: Prompt length: 20345 characters
+2026-09-08 18:00:04 [DEBUG   ] java2rsmod: Calling Ollama at http://localhost:11434/api/generate with model 'gpt-oss:latest'
+2026-09-08 18:00:05 [DEBUG   ] httpcore.connection: connect_tcp.started host='localhost' port=11434 local_address=None timeout=300 socket_options=None
+2026-09-08 18:00:07 [DEBUG   ] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001FF75450EC0>
+2026-09-08 18:00:07 [DEBUG   ] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-09-08 18:00:07 [DEBUG   ] httpcore.http11: send_request_headers.complete
+2026-09-08 18:00:07 [DEBUG   ] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-09-08 18:00:07 [DEBUG   ] httpcore.http11: send_request_body.complete
+2026-09-08 18:00:07 [DEBUG   ] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-09-08 18:00:29 [DEBUG   ] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 500, b'Internal Server Error', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Date', b'Wed, 09 Sep 2026 01:00:29 GMT'), (b'Content-Length', b'288')])
+2026-09-08 18:00:29 [INFO    ] httpx: HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 500 Internal Server Error"
+2026-09-08 18:00:29 [DEBUG   ] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-09-08 18:00:29 [DEBUG   ] httpcore.http11: receive_response_body.complete
+2026-09-08 18:00:29 [DEBUG   ] httpcore.http11: response_closed.started
+2026-09-08 18:00:29 [DEBUG   ] httpcore.http11: response_closed.complete
+2026-09-08 18:00:29 [DEBUG   ] httpcore.connection: close.started
+2026-09-08 18:00:29 [DEBUG   ] httpcore.connection: close.complete
+2026-09-08 18:00:29 [ERROR   ] java2rsmod: Ollama error for DragonDaggerCombatMethod.java: Ollama returned HTTP 500: {"error":"llama-server process has terminated: exit status 0xc0000409: The system detected an overrun of a stack-based buffer in this application. This overrun could potentially allow a malicious user
+2026-09-08 18:00:29 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:00:29 [INFO    ] java2rsmod: Done. Success: 0  Failed: 1  Output: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1800
+2026-09-08 18:00:29 [WARNING ] java2rsmod: 1 file(s) had errors — check logs above.
+2026-09-08 18:00:29 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:00:43 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:00:43 [INFO    ] java2rsmod: java2rsmod starting — model: qwen2.5-coder:14b
+2026-09-08 18:00:43 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:00:43 [DEBUG   ] java2rsmod: Knowledge base: 13325 chars
+2026-09-08 18:00:43 [DEBUG   ] java2rsmod: Prompt template: 5021 chars
+2026-09-08 18:00:43 [INFO    ] java2rsmod: Files to convert: 1
+2026-09-08 18:00:43 [INFO    ] java2rsmod: Output directory: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1800
+2026-09-08 18:00:43 [INFO    ] java2rsmod: Processing: DragonDaggerCombatMethod.java
+2026-09-08 18:00:43 [DEBUG   ] java2rsmod: Pre-analysing DragonDaggerCombatMethod.java
+2026-09-08 18:00:43 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:00:43 [DEBUG   ] java2rsmod: Prompt length: 20345 characters
+2026-09-08 18:00:43 [DEBUG   ] java2rsmod: Calling Ollama at http://localhost:11434/api/generate with model 'qwen2.5-coder:14b'
+2026-09-08 18:00:43 [DEBUG   ] httpcore.connection: connect_tcp.started host='localhost' port=11434 local_address=None timeout=300 socket_options=None
+2026-09-08 18:00:45 [DEBUG   ] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000026476AC0EC0>
+2026-09-08 18:00:45 [DEBUG   ] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-09-08 18:00:45 [DEBUG   ] httpcore.http11: send_request_headers.complete
+2026-09-08 18:00:45 [DEBUG   ] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-09-08 18:00:45 [DEBUG   ] httpcore.http11: send_request_body.complete
+2026-09-08 18:00:45 [DEBUG   ] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-09-08 18:05:51 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:05:51 [INFO    ] java2rsmod: java2rsmod starting — model: llama3:latest
+2026-09-08 18:05:51 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:05:51 [DEBUG   ] java2rsmod: Knowledge base: 13325 chars
+2026-09-08 18:05:51 [DEBUG   ] java2rsmod: Prompt template: 5021 chars
+2026-09-08 18:05:51 [INFO    ] java2rsmod: Files to convert: 1
+2026-09-08 18:05:51 [INFO    ] java2rsmod: Output directory: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1805
+2026-09-08 18:05:51 [INFO    ] java2rsmod: Processing: DragonDaggerCombatMethod.java
+2026-09-08 18:05:51 [DEBUG   ] java2rsmod: Pre-analysing DragonDaggerCombatMethod.java
+2026-09-08 18:05:51 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:05:51 [DEBUG   ] java2rsmod: Prompt length: 20345 characters
+2026-09-08 18:05:51 [DEBUG   ] java2rsmod: Calling Ollama at http://localhost:11434/api/generate with model 'llama3:latest'
+2026-09-08 18:05:51 [DEBUG   ] httpcore.connection: connect_tcp.started host='localhost' port=11434 local_address=None timeout=300 socket_options=None
+2026-09-08 18:05:53 [DEBUG   ] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000020D3F070EC0>
+2026-09-08 18:05:53 [DEBUG   ] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-09-08 18:05:53 [DEBUG   ] httpcore.http11: send_request_headers.complete
+2026-09-08 18:05:53 [DEBUG   ] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-09-08 18:05:53 [DEBUG   ] httpcore.http11: send_request_body.complete
+2026-09-08 18:05:53 [DEBUG   ] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-09-08 18:06:14 [DEBUG   ] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Date', b'Wed, 09 Sep 2026 01:06:14 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-09-08 18:06:14 [INFO    ] httpx: HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-08 18:06:14 [DEBUG   ] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-09-08 18:06:14 [DEBUG   ] httpcore.http11: receive_response_body.complete
+2026-09-08 18:06:14 [DEBUG   ] httpcore.http11: response_closed.started
+2026-09-08 18:06:14 [DEBUG   ] httpcore.http11: response_closed.complete
+2026-09-08 18:06:14 [DEBUG   ] httpcore.connection: close.started
+2026-09-08 18:06:14 [DEBUG   ] httpcore.connection: close.complete
+2026-09-08 18:06:14 [INFO    ] java2rsmod:   Written: DragonDaggerCombatMethod.kt
+2026-09-08 18:06:14 [INFO    ] java2rsmod:   Written: DragonDaggerCombatMethod_notes.md
+2026-09-08 18:06:14 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:06:14 [INFO    ] java2rsmod: Done. Success: 1  Failed: 0  Output: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1805
+2026-09-08 18:06:14 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:06:33 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:06:33 [INFO    ] java2rsmod: java2rsmod starting — model: qwen2.5-coder:7b
+2026-09-08 18:06:33 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:06:33 [DEBUG   ] java2rsmod: Knowledge base: 13325 chars
+2026-09-08 18:06:33 [DEBUG   ] java2rsmod: Prompt template: 5021 chars
+2026-09-08 18:06:33 [INFO    ] java2rsmod: Files to convert: 1
+2026-09-08 18:06:33 [INFO    ] java2rsmod: Output directory: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1806
+2026-09-08 18:06:33 [INFO    ] java2rsmod: Processing: DragonDaggerCombatMethod.java
+2026-09-08 18:06:33 [DEBUG   ] java2rsmod: Pre-analysing DragonDaggerCombatMethod.java
+2026-09-08 18:06:33 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:06:33 [DEBUG   ] java2rsmod: Prompt length: 20345 characters
+2026-09-08 18:06:33 [DEBUG   ] java2rsmod: Calling Ollama at http://localhost:11434/api/generate with model 'qwen2.5-coder:7b'
+2026-09-08 18:06:33 [DEBUG   ] httpcore.connection: connect_tcp.started host='localhost' port=11434 local_address=None timeout=300 socket_options=None
+2026-09-08 18:06:34 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:06:34 [INFO    ] java2rsmod: java2rsmod starting — model: deepseek-coder:latest
+2026-09-08 18:06:34 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:06:34 [DEBUG   ] java2rsmod: Knowledge base: 13325 chars
+2026-09-08 18:06:34 [DEBUG   ] java2rsmod: Prompt template: 5021 chars
+2026-09-08 18:06:34 [INFO    ] java2rsmod: Files to convert: 1
+2026-09-08 18:06:34 [INFO    ] java2rsmod: Output directory: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1806
+2026-09-08 18:06:34 [INFO    ] java2rsmod: Processing: DragonDaggerCombatMethod.java
+2026-09-08 18:06:34 [DEBUG   ] java2rsmod: Pre-analysing DragonDaggerCombatMethod.java
+2026-09-08 18:06:34 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:06:34 [DEBUG   ] java2rsmod: Prompt length: 20345 characters
+2026-09-08 18:06:34 [DEBUG   ] java2rsmod: Calling Ollama at http://localhost:11434/api/generate with model 'deepseek-coder:latest'
+2026-09-08 18:06:34 [DEBUG   ] httpcore.connection: connect_tcp.started host='localhost' port=11434 local_address=None timeout=300 socket_options=None
+2026-09-08 18:06:35 [DEBUG   ] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000212F89C0EC0>
+2026-09-08 18:06:35 [DEBUG   ] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-09-08 18:06:35 [DEBUG   ] httpcore.http11: send_request_headers.complete
+2026-09-08 18:06:35 [DEBUG   ] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-09-08 18:06:35 [DEBUG   ] httpcore.http11: send_request_body.complete
+2026-09-08 18:06:35 [DEBUG   ] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-09-08 18:06:36 [DEBUG   ] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000002CC76220EC0>
+2026-09-08 18:06:36 [DEBUG   ] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-09-08 18:06:36 [DEBUG   ] httpcore.http11: send_request_headers.complete
+2026-09-08 18:06:36 [DEBUG   ] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-09-08 18:06:36 [DEBUG   ] httpcore.http11: send_request_body.complete
+2026-09-08 18:06:36 [DEBUG   ] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-09-08 18:06:54 [DEBUG   ] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Date', b'Wed, 09 Sep 2026 01:06:54 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-09-08 18:06:54 [INFO    ] httpx: HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-08 18:06:54 [DEBUG   ] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-09-08 18:06:54 [DEBUG   ] httpcore.http11: receive_response_body.complete
+2026-09-08 18:06:54 [DEBUG   ] httpcore.http11: response_closed.started
+2026-09-08 18:06:54 [DEBUG   ] httpcore.http11: response_closed.complete
+2026-09-08 18:06:54 [DEBUG   ] httpcore.connection: close.started
+2026-09-08 18:06:54 [DEBUG   ] httpcore.connection: close.complete
+2026-09-08 18:06:54 [INFO    ] java2rsmod:   Written: DragonDaggerCombatMethod.kt
+2026-09-08 18:06:54 [INFO    ] java2rsmod:   Written: DragonDaggerCombatMethod_notes.md
+2026-09-08 18:06:54 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:06:54 [INFO    ] java2rsmod: Done. Success: 1  Failed: 0  Output: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1806
+2026-09-08 18:06:54 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:07:09 [DEBUG   ] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Date', b'Wed, 09 Sep 2026 01:07:09 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-09-08 18:07:09 [INFO    ] httpx: HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-08 18:07:09 [DEBUG   ] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-09-08 18:07:09 [DEBUG   ] httpcore.http11: receive_response_body.complete
+2026-09-08 18:07:09 [DEBUG   ] httpcore.http11: response_closed.started
+2026-09-08 18:07:09 [DEBUG   ] httpcore.http11: response_closed.complete
+2026-09-08 18:07:09 [DEBUG   ] httpcore.connection: close.started
+2026-09-08 18:07:09 [DEBUG   ] httpcore.connection: close.complete
+2026-09-08 18:07:09 [INFO    ] java2rsmod:   Written: DragonDaggerCombatMethod.kt
+2026-09-08 18:07:09 [INFO    ] java2rsmod:   Written: DragonDaggerCombatMethod_notes.md
+2026-09-08 18:07:09 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:07:09 [INFO    ] java2rsmod: Done. Success: 1  Failed: 0  Output: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1806
+2026-09-08 18:07:09 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:07:51 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:07:51 [INFO    ] java2rsmod: java2rsmod starting — model: qwen3:8b
+2026-09-08 18:07:51 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:07:51 [DEBUG   ] java2rsmod: Knowledge base: 13325 chars
+2026-09-08 18:07:51 [DEBUG   ] java2rsmod: Prompt template: 5021 chars
+2026-09-08 18:07:51 [INFO    ] java2rsmod: Files to convert: 1
+2026-09-08 18:07:51 [INFO    ] java2rsmod: Output directory: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1807
+2026-09-08 18:07:51 [INFO    ] java2rsmod: Processing: DragonDaggerCombatMethod.java
+2026-09-08 18:07:51 [DEBUG   ] java2rsmod: Pre-analysing DragonDaggerCombatMethod.java
+2026-09-08 18:07:51 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:07:51 [DEBUG   ] java2rsmod: Prompt length: 20345 characters
+2026-09-08 18:07:51 [DEBUG   ] java2rsmod: Calling Ollama at http://localhost:11434/api/generate with model 'qwen3:8b'
+2026-09-08 18:07:51 [DEBUG   ] httpcore.connection: connect_tcp.started host='localhost' port=11434 local_address=None timeout=300 socket_options=None
+2026-09-08 18:07:51 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:07:51 [INFO    ] java2rsmod: java2rsmod starting — model: gemma4:12b
+2026-09-08 18:07:51 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:07:51 [DEBUG   ] java2rsmod: Knowledge base: 13325 chars
+2026-09-08 18:07:51 [DEBUG   ] java2rsmod: Prompt template: 5021 chars
+2026-09-08 18:07:51 [INFO    ] java2rsmod: Files to convert: 1
+2026-09-08 18:07:51 [INFO    ] java2rsmod: Output directory: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1807
+2026-09-08 18:07:51 [INFO    ] java2rsmod: Processing: DragonDaggerCombatMethod.java
+2026-09-08 18:07:51 [DEBUG   ] java2rsmod: Pre-analysing DragonDaggerCombatMethod.java
+2026-09-08 18:07:51 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:07:51 [DEBUG   ] java2rsmod: Prompt length: 20345 characters
+2026-09-08 18:07:51 [DEBUG   ] java2rsmod: Calling Ollama at http://localhost:11434/api/generate with model 'gemma4:12b'
+2026-09-08 18:07:51 [DEBUG   ] httpcore.connection: connect_tcp.started host='localhost' port=11434 local_address=None timeout=300 socket_options=None
+2026-09-08 18:07:53 [DEBUG   ] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000019E505C0EC0>
+2026-09-08 18:07:53 [DEBUG   ] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-09-08 18:07:53 [DEBUG   ] httpcore.http11: send_request_headers.complete
+2026-09-08 18:07:53 [DEBUG   ] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-09-08 18:07:53 [DEBUG   ] httpcore.http11: send_request_body.complete
+2026-09-08 18:07:53 [DEBUG   ] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-09-08 18:07:53 [DEBUG   ] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001C4BFD90EC0>
+2026-09-08 18:07:53 [DEBUG   ] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-09-08 18:07:53 [DEBUG   ] httpcore.http11: send_request_headers.complete
+2026-09-08 18:07:53 [DEBUG   ] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-09-08 18:07:53 [DEBUG   ] httpcore.http11: send_request_body.complete
+2026-09-08 18:07:53 [DEBUG   ] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-09-08 18:10:58 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:10:58 [INFO    ] java2rsmod: java2rsmod starting — model: llama3.2:latest
+2026-09-08 18:10:58 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:10:58 [DEBUG   ] java2rsmod: Knowledge base: 13325 chars
+2026-09-08 18:10:58 [DEBUG   ] java2rsmod: Prompt template: 5021 chars
+2026-09-08 18:10:58 [INFO    ] java2rsmod: Files to convert: 1
+2026-09-08 18:10:58 [INFO    ] java2rsmod: Output directory: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1810
+2026-09-08 18:10:58 [INFO    ] java2rsmod: Processing: DragonDaggerCombatMethod.java
+2026-09-08 18:10:58 [DEBUG   ] java2rsmod: Pre-analysing DragonDaggerCombatMethod.java
+2026-09-08 18:10:58 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:10:58 [DEBUG   ] java2rsmod: Prompt length: 20345 characters
+2026-09-08 18:10:58 [DEBUG   ] java2rsmod: Calling Ollama at http://localhost:11434/api/generate with model 'llama3.2:latest'
+2026-09-08 18:10:58 [DEBUG   ] httpcore.connection: connect_tcp.started host='localhost' port=11434 local_address=None timeout=300 socket_options=None
+2026-09-08 18:11:00 [DEBUG   ] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000184A21A0EC0>
+2026-09-08 18:11:00 [DEBUG   ] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-09-08 18:11:00 [DEBUG   ] httpcore.http11: send_request_headers.complete
+2026-09-08 18:11:00 [DEBUG   ] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-09-08 18:11:00 [DEBUG   ] httpcore.http11: send_request_body.complete
+2026-09-08 18:11:00 [DEBUG   ] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-09-08 18:11:07 [DEBUG   ] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Date', b'Wed, 09 Sep 2026 01:11:07 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-09-08 18:11:07 [INFO    ] httpx: HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-08 18:11:07 [DEBUG   ] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-09-08 18:11:07 [DEBUG   ] httpcore.http11: receive_response_body.complete
+2026-09-08 18:11:07 [DEBUG   ] httpcore.http11: response_closed.started
+2026-09-08 18:11:07 [DEBUG   ] httpcore.http11: response_closed.complete
+2026-09-08 18:11:07 [DEBUG   ] httpcore.connection: close.started
+2026-09-08 18:11:07 [DEBUG   ] httpcore.connection: close.complete
+2026-09-08 18:11:07 [INFO    ] java2rsmod:   Written: DragonDaggerCombatMethod.kt
+2026-09-08 18:11:07 [INFO    ] java2rsmod:   Written: DragonDaggerCombatMethod_notes.md
+2026-09-08 18:11:07 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:11:07 [INFO    ] java2rsmod: Done. Success: 1  Failed: 0  Output: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1810
+2026-09-08 18:11:07 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:11:19 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:11:19 [INFO    ] java2rsmod: java2rsmod starting — model: hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M
+2026-09-08 18:11:19 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:11:19 [DEBUG   ] java2rsmod: Knowledge base: 13325 chars
+2026-09-08 18:11:19 [DEBUG   ] java2rsmod: Prompt template: 5021 chars
+2026-09-08 18:11:19 [INFO    ] java2rsmod: Files to convert: 1
+2026-09-08 18:11:19 [INFO    ] java2rsmod: Output directory: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1811
+2026-09-08 18:11:19 [INFO    ] java2rsmod: Processing: DragonDaggerCombatMethod.java
+2026-09-08 18:11:19 [DEBUG   ] java2rsmod: Pre-analysing DragonDaggerCombatMethod.java
+2026-09-08 18:11:19 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:11:19 [DEBUG   ] java2rsmod: Prompt length: 20345 characters
+2026-09-08 18:11:19 [DEBUG   ] java2rsmod: Calling Ollama at http://localhost:11434/api/generate with model 'hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M'
+2026-09-08 18:11:19 [DEBUG   ] httpcore.connection: connect_tcp.started host='localhost' port=11434 local_address=None timeout=300 socket_options=None
+2026-09-08 18:11:21 [DEBUG   ] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001DE4BE50EC0>
+2026-09-08 18:11:21 [DEBUG   ] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-09-08 18:11:21 [DEBUG   ] httpcore.http11: send_request_headers.complete
+2026-09-08 18:11:21 [DEBUG   ] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-09-08 18:11:21 [DEBUG   ] httpcore.http11: send_request_body.complete
+2026-09-08 18:11:21 [DEBUG   ] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-09-08 18:11:35 [DEBUG   ] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Date', b'Wed, 09 Sep 2026 01:11:35 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-09-08 18:11:35 [INFO    ] httpx: HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-08 18:11:35 [DEBUG   ] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-09-08 18:11:35 [DEBUG   ] httpcore.http11: receive_response_body.complete
+2026-09-08 18:11:35 [DEBUG   ] httpcore.http11: response_closed.started
+2026-09-08 18:11:35 [DEBUG   ] httpcore.http11: response_closed.complete
+2026-09-08 18:11:35 [DEBUG   ] httpcore.connection: close.started
+2026-09-08 18:11:35 [DEBUG   ] httpcore.connection: close.complete
+2026-09-08 18:11:35 [INFO    ] java2rsmod:   Written: DragonDaggerCombatMethod.kt
+2026-09-08 18:11:35 [INFO    ] java2rsmod:   Written: DragonDaggerCombatMethod_notes.md
+2026-09-08 18:11:35 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:11:35 [INFO    ] java2rsmod: Done. Success: 1  Failed: 0  Output: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1811
+2026-09-08 18:11:35 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:17:17 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:17:17 [INFO    ] java2rsmod: java2rsmod starting — model: hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M
+2026-09-08 18:17:17 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:17:17 [INFO    ] java2rsmod: Files to convert: 3
+2026-09-08 18:17:17 [INFO    ] java2rsmod: DRY RUN — pre-analysis only
+2026-09-08 18:17:17 [DEBUG   ] java2rsmod: Pre-analysing DragonDaggerCombatMethod.java
+2026-09-08 18:17:17 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:17:17 [DEBUG   ] java2rsmod: Pre-analysing Food.java
+2026-09-08 18:17:17 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=15
+2026-09-08 18:17:17 [DEBUG   ] java2rsmod: Pre-analysing WildernessArea.java
+2026-09-08 18:17:17 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=True death=True | elvarg APIs=13
+2026-09-08 18:17:26 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:17:26 [INFO    ] java2rsmod: java2rsmod starting — model: hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M
+2026-09-08 18:17:26 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:17:26 [INFO    ] java2rsmod: Files to convert: 1
+2026-09-08 18:17:26 [DEBUG   ] java2rsmod: Knowledge base: 13325 chars
+2026-09-08 18:17:26 [DEBUG   ] java2rsmod: Prompt template: 5021 chars
+2026-09-08 18:17:26 [INFO    ] java2rsmod: Output directory: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1817
+2026-09-08 18:17:26 [INFO    ] java2rsmod: Processing: DragonDaggerCombatMethod.java
+2026-09-08 18:17:26 [DEBUG   ] java2rsmod: Pre-analysing DragonDaggerCombatMethod.java
+2026-09-08 18:17:26 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:17:26 [DEBUG   ] java2rsmod: Prompt length: 20345 characters
+2026-09-08 18:17:26 [DEBUG   ] java2rsmod: Calling Ollama at http://localhost:11434/api/generate with model 'hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M'
+2026-09-08 18:17:26 [DEBUG   ] httpcore.connection: connect_tcp.started host='localhost' port=11434 local_address=None timeout=120 socket_options=None
+2026-09-08 18:17:28 [DEBUG   ] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001EB53EF1010>
+2026-09-08 18:17:28 [DEBUG   ] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-09-08 18:17:28 [DEBUG   ] httpcore.http11: send_request_headers.complete
+2026-09-08 18:17:28 [DEBUG   ] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-09-08 18:17:28 [DEBUG   ] httpcore.http11: send_request_body.complete
+2026-09-08 18:17:28 [DEBUG   ] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-09-08 18:17:40 [DEBUG   ] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Date', b'Wed, 09 Sep 2026 01:17:40 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-09-08 18:17:40 [INFO    ] httpx: HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-08 18:17:40 [DEBUG   ] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-09-08 18:17:40 [DEBUG   ] httpcore.http11: receive_response_body.complete
+2026-09-08 18:17:40 [DEBUG   ] httpcore.http11: response_closed.started
+2026-09-08 18:17:40 [DEBUG   ] httpcore.http11: response_closed.complete
+2026-09-08 18:17:40 [DEBUG   ] httpcore.connection: close.started
+2026-09-08 18:17:40 [DEBUG   ] httpcore.connection: close.complete
+2026-09-08 18:17:40 [INFO    ] java2rsmod:   Written: DragonDaggerCombatMethod.kt
+2026-09-08 18:17:40 [INFO    ] java2rsmod:   Written: DragonDaggerCombatMethod_notes.md
+2026-09-08 18:17:40 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:17:40 [INFO    ] java2rsmod: Done. Success: 1  Failed: 0  Output: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1817
+2026-09-08 18:17:40 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:18:34 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:18:34 [INFO    ] java2rsmod: java2rsmod starting — model: hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M
+2026-09-08 18:18:34 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:18:34 [INFO    ] java2rsmod: Files to convert: 2
+2026-09-08 18:18:34 [INFO    ] java2rsmod: Output directory: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1818
+2026-09-08 18:18:34 [INFO    ] java2rsmod: Processing: Food.java
+2026-09-08 18:18:34 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=15
+2026-09-08 18:19:07 [INFO    ] httpx: HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-08 18:19:07 [INFO    ] java2rsmod:   Written: Food.kt
+2026-09-08 18:19:07 [INFO    ] java2rsmod:   Written: Food_notes.md
+2026-09-08 18:19:07 [INFO    ] java2rsmod: Processing: WildernessArea.java
+2026-09-08 18:19:07 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=True death=True | elvarg APIs=13
+2026-09-08 18:19:38 [INFO    ] httpx: HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-08 18:19:38 [INFO    ] java2rsmod:   Written: WildernessArea.kt
+2026-09-08 18:19:38 [INFO    ] java2rsmod:   Written: WildernessArea_notes.md
+2026-09-08 18:19:38 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:19:38 [INFO    ] java2rsmod: Done. Success: 2  Failed: 0  Output: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1818
+2026-09-08 18:19:38 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:21:08 [INFO    ] java2rsmod: Cleaned 11 old output folders
+2026-09-08 18:21:13 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:21:13 [INFO    ] java2rsmod: java2rsmod starting — model: hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M
+2026-09-08 18:21:13 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:21:13 [INFO    ] java2rsmod: Files to convert: 228
+2026-09-08 18:21:13 [INFO    ] java2rsmod: DRY RUN — pre-analysis only
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=11
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=data class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=9
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=False death=True | elvarg APIs=12
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=2
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=10
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=22
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=data class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=data class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=2
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=2
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=3
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=10
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=8
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=False death=True | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=9
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=10
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=8
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=9
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=8
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=9
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=3
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=9
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=10
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=12
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=12
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=3
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=2
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=False death=True | elvarg APIs=2
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=data class | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=False death=True | elvarg APIs=3
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=2
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=2
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=9
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=11
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=11
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=8
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=9
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=10
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=8
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=9
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=11
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=3
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=8
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=9
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=3
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=9
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=10
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=12
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=12
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=3
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=2
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=False death=True | elvarg APIs=2
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=data class | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=False death=True | elvarg APIs=3
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=2
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=2
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=9
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=11
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=11
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=8
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=11
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=9
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=10
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=8
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=9
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=11
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=3
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=3
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=6
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=13
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=3
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=11
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=data class | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=15
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=10
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=False death=True | elvarg APIs=5
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=11
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=14
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=11
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=14
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=10
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:13 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=10
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=8
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=11
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=11
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=10
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=2
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=False death=True | elvarg APIs=12
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=11
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=3
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=4
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=3
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=1
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=3
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=7
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=True death=True | elvarg APIs=8
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=True death=False | elvarg APIs=8
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=True death=False | elvarg APIs=4
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=True death=False | elvarg APIs=8
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=True death=False | elvarg APIs=8
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=True death=True | elvarg APIs=8
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=True death=True | elvarg APIs=7
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=True death=True | elvarg APIs=8
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=True death=True | elvarg APIs=2
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=True death=True | elvarg APIs=10
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=True death=False | elvarg APIs=7
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=True death=False | elvarg APIs=5
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=3
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript | npc=False item=False loc=True death=True | elvarg APIs=13
+2026-09-08 18:21:14 [INFO    ] java2rsmod:   Analysis complete: type=PluginScript (review required) | npc=False item=False loc=False death=False | elvarg APIs=2
+2026-09-08 18:22:10 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:22:10 [INFO    ] java2rsmod: java2rsmod starting — model: hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M
+2026-09-08 18:22:10 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:22:10 [INFO    ] java2rsmod: Files to convert: 1
+2026-09-08 18:22:10 [INFO    ] java2rsmod: Output directory: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1822
+2026-09-08 18:22:10 [INFO    ] java2rsmod: Processing: Food.java
+2026-09-08 18:22:10 [INFO    ] java2rsmod:   Analysis complete: type=enum class | npc=False item=False loc=False death=False | elvarg APIs=15
+2026-09-08 18:22:45 [INFO    ] httpx: HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-08 18:22:45 [INFO    ] java2rsmod:   Written: Food.kt
+2026-09-08 18:22:45 [INFO    ] java2rsmod:   Written: Food_notes.md
+2026-09-08 18:22:45 [INFO    ] java2rsmod: ============================================================
+2026-09-08 18:22:45 [INFO    ] java2rsmod: Done. Success: 1  Failed: 0  Output: C:\Users\bob\Desktop\gpt-rsmod\tools\java2rsmod\output\2026-09-08_1822
+2026-09-08 18:22:45 [INFO    ] java2rsmod: ============================================================

@@ -34,7 +34,7 @@ LOG_FILE = TOOL_ROOT / "logs" / "java2rsmod.log"
 #   mistral          ~4-5 GB   ← default, good quality
 #   llama3.2:3b      ~2-3 GB   ← lighter, faster, less accurate
 #   codellama        ~4-5 GB   ← code-focused alternative
-OLLAMA_MODEL: str = "mistral"
+OLLAMA_MODEL: str = "hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M"
 
 # Ollama server URL (default local install)
 OLLAMA_BASE_URL: str = "http://localhost:11434"

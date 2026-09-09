@@ -18,6 +18,7 @@ import org.rsmod.game.entity.Npc
 import org.rsmod.game.entity.Player
 import org.rsmod.game.entity.PlayerList
 import org.rsmod.game.entity.npc.NpcUid
+import org.rsmod.game.type.npc.NpcTypeList
 import org.rsmod.game.type.seq.SeqTypeList
 import org.rsmod.map.CoordGrid
 
@@ -27,8 +28,10 @@ public class NpcDeath
 constructor(
     private val npcRepo: NpcRepository,
     private val seqTypes: SeqTypeList,
+    private val npcTypes: NpcTypeList,
     private val players: PlayerList,
     private val objRepo: ObjRepository,
+    private val dropTableRepo: DropTableRepository,
 ) {
     public suspend fun deathNoDrops(access: StandardNpcAccess) {
         access.death(npcRepo, seqTypes, players)
@@ -43,11 +46,35 @@ constructor(
     }
 
     private fun Npc.spawnDeathDrops(dropCoords: CoordGrid) {
-        // TODO: Drop tables.
         val hero = findHero(players)
         if (hero != null) {
             val duration = hero.lootDropDuration ?: constants.lootdrop_duration
-            objRepo.add(objs.bones, dropCoords, duration, hero)
+            val npcType = npcTypes[type]
+            val dropTable = dropTableRepo.getTable(npcType)
+            if (dropTable != null) {
+                for (entry in dropTable.entries) {
+                    when (entry) {
+                        is Drop.Always -> {
+                            objRepo.add(entry.objType, dropCoords, duration, hero, entry.amount)
+                        }
+                        is Drop.Random -> {
+                            val roll = hero随机?.nextInt(entry.rate) ?: 0
+                            if (roll == 0) {
+                                objRepo.add(entry.objType, dropCoords, duration, hero, entry.amount)
+                            }
+                        }
+                        is Drop.Tertiary -> {
+                            val roll = hero随机?.nextInt(entry.rate) ?: 0
+                            if (roll == 0) {
+                                objRepo.add(entry.objType, dropCoords, duration, hero, entry.amount)
+                            }
+                        }
+                    }
+                }
+            } else {
+                // Default: drop bones if no table registered
+                objRepo.add(objs.bones, dropCoords, duration, hero)
+            }
         }
     }
 
