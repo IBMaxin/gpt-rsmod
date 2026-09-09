@@ -3,8 +3,7 @@ package org.rsmod.api.death
 /**
  * Multibinding interface for registering drop tables per NPC type.
  *
- * Content modules implement this to define drops for their NPCs.
- * Example usage:
+ * Content modules implement this to define drops for their NPCs. Example usage:
  * ```
  * object CowDrops : DropTableMap {
  *     override fun DropTableRepository.register() {

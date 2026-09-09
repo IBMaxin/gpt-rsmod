@@ -12,6 +12,7 @@ import org.rsmod.api.npc.vars.typePlayerUidVarn
 import org.rsmod.api.player.output.soundSynth
 import org.rsmod.api.player.vars.intVarp
 import org.rsmod.api.player.vars.typeNpcUidVarp
+import org.rsmod.api.random.GameRandom
 import org.rsmod.api.repo.npc.NpcRepository
 import org.rsmod.api.repo.obj.ObjRepository
 import org.rsmod.game.entity.Npc
@@ -32,6 +33,7 @@ constructor(
     private val players: PlayerList,
     private val objRepo: ObjRepository,
     private val dropTableRepo: DropTableRepository,
+    private val random: GameRandom,
 ) {
     public suspend fun deathNoDrops(access: StandardNpcAccess) {
         access.death(npcRepo, seqTypes, players)
@@ -58,13 +60,13 @@ constructor(
                             objRepo.add(entry.objType, dropCoords, duration, hero, entry.amount)
                         }
                         is Drop.Random -> {
-                            val roll = hero随机?.nextInt(entry.rate) ?: 0
+                            val roll = random.of(entry.rate)
                             if (roll == 0) {
                                 objRepo.add(entry.objType, dropCoords, duration, hero, entry.amount)
                             }
                         }
                         is Drop.Tertiary -> {
-                            val roll = hero随机?.nextInt(entry.rate) ?: 0
+                            val roll = random.of(entry.rate)
                             if (roll == 0) {
                                 objRepo.add(entry.objType, dropCoords, duration, hero, entry.amount)
                             }

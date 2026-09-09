@@ -89,7 +89,7 @@ content/skills/{name}/
 | Cooking | Planning | `content/skills/cooking/PLAN.md` |
 | Firemaking | Planning | `content/skills/firemaking/PLAN.md` |
 | Fishing | Planning | `content/skills/fishing/PLAN.md` |
-| Fletching | In Progress | `content/skills/fletching/PLAN.md` |
+| Fletching | ✅ Complete | `content/skills/fletching/` — 12 source files, all integration tests pass |
 | Slayer | In Progress | `content/skills/slayer/` |
 
 ### TDD Workflow

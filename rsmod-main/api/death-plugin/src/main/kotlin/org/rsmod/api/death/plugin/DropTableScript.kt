@@ -6,15 +6,11 @@ import org.rsmod.api.death.DropTableRepository
 import org.rsmod.plugin.scripts.PluginScript
 import org.rsmod.plugin.scripts.ScriptContext
 
-/**
- * Script that registers all drop tables from multibindings at startup.
- */
+/** Script that registers all drop tables from multibindings at startup. */
 internal class DropTableScript
 @Inject
-constructor(
-    private val repo: DropTableRepository,
-    private val dropTables: Set<DropTableMap>,
-) : PluginScript() {
+constructor(private val repo: DropTableRepository, private val dropTables: Set<DropTableMap>) :
+    PluginScript() {
     override fun ScriptContext.startup() {
         dropTables.registerAll()
     }
