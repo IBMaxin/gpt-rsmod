@@ -27,6 +27,7 @@ internal object CookingLocEditor : LocEditor() {
     }
 
     private fun editRange(type: LocType) {
-        edit(type) { contentGroup = content.cooking_range }
+        // TODO(cooking): Add content.cooking_range content group to BaseContent once defined in cache.
+        // edit(type) { contentGroup = content.cooking_range }
     }
 }

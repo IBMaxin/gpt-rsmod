@@ -4,10 +4,13 @@ import org.rsmod.api.type.editors.npc.NpcEditor
 
 object SlayerNpcEditor : NpcEditor() {
     init {
-        // Only edit the cow NPC for the skeleton task
         edit(SlayerNpcRefs.cow) {
             param[SlayerParams.levelrequire] = 1
-            param[SlayerParams.experience] = 80 // 8.0 XP (fine units ×10)
+            param[SlayerParams.experience] = 80
+        }
+        edit(SlayerNpcRefs.goblin) {
+            param[SlayerParams.levelrequire] = 1
+            param[SlayerParams.experience] = 64
         }
     }
 }

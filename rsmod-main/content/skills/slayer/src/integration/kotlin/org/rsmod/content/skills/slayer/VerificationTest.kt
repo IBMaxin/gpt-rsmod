@@ -20,6 +20,8 @@ class VerificationTest {
             // Resolve varps – slayer varps not defined, use placeholder playtime varp
             val placeholderTarget = varps.playtime // surrogate for slayer_target
             val placeholderCount = varps.playtime // surrogate for slayer_count
+            // Resolve additional slayer NPCs for verification
+            val goblin = cacheTypes.npcs.values.firstOrNull { it.internalName == "goblin" }
             // Access via player to ensure varp handling works
             val targetValue = player.vars[placeholderTarget]
             val countValue = player.vars[placeholderCount]
