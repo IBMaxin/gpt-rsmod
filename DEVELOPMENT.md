@@ -754,12 +754,7 @@ class MyConfigTest {
 
 ### Running Tests
 
-```bash
-.\gradlew.bat :content:skills:mining:integration  # run integration tests for a module
-.\gradlew.bat integration                          # run all integration tests
-```
-
-**CRITICAL**: All integration tests currently BLOCKED by `content.fletching_knife` type verifier error in `api/config/refs/BaseContent.kt:58`. The `ContentReferences.find()` creates a `ContentGroupType` but the verifier validates it against the item `.sym` file where `fletching_knife` doesn't exist.
+See **Build & Test Commands** in [AGENTS.md](rsmod-main/AGENTS.md) for the full command reference and [docs/archive/ardougne-thieving-progress.md](rsmod-main/docs/archive/ardougne-thieving-progress.md) for current test status.
 
 ---
 
@@ -857,4 +852,12 @@ import org.rsmod.api.combat.weapon.types.AttackTypes
 // Map
 import org.rsmod.map.CoordGrid
 import org.rsmod.map.zone.ZoneKey
+
+## See Also
+
+- [AGENTS.md](rsmod-main/AGENTS.md) — AI agent reference (build commands, API reference, gotchas)
+- [ROADMAP.md](ROADMAP.md) — Project roadmap and phases
+- [SETUP.md](SETUP.md) — Detailed setup guide
+- [docs/design/teleport-menu.md](rsmod-main/docs/design/teleport-menu.md) — Teleport menu design doc
+- [docs/quirks.md](rsmod-main/docs/quirks.md) — Technical quirks and design decisions
 ```
