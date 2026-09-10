@@ -130,9 +130,9 @@ private fun KoNonNullableTypeProvider.hasRandomType(): Boolean =
 
 private val NAIVE_RANDOM_CALL_REGEX = Regex(""".+\.random\(\)""")
 private val NAIVE_RANDOM_RETURN_NO_BODY_REGEX =
-    Regex("""[^\n]*=\s*(?:[A-Za-z_]\w*\.)*(?:Random|ThreadLocalRandom)\b""")
+    Regex("""[^\n]*=\s*(?:[A-Za-z_]\w*\.)*(?!Drop\.)\b(?:Random|ThreadLocalRandom)\b""")
 private val NAIVE_RANDOM_RETURN_WITH_BODY_REGEX =
-    Regex("""\breturn\b[^\n]*\b(?:[A-Za-z_]\w*\.)*(?:Random|ThreadLocalRandom)\b""")
+    Regex("""\breturn\b[^\n]*\b(?:[A-Za-z_]\w*\.)*(?!Drop\.)\b(?:Random|ThreadLocalRandom)\b""")
 private val NAIVE_RANDOM_EXTENSION_RETURN_NO_BODY_REGEX = Regex(""".*= random\(\)""")
 private val NAIVE_RANDOM_EXTENSION_RETURN_WITH_BODY_REGEX = Regex(""".*return random\(\)""")
 

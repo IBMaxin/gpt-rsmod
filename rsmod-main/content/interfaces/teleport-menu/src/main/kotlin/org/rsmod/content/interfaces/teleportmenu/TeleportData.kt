@@ -5,10 +5,10 @@ import org.rsmod.map.CoordGrid
 data class TeleportEntry(val name: String, val coord: CoordGrid, val magicLevel: Int)
 
 enum class TeleportCategory(val displayName: String) {
-    STANDARD("Standard Spells"),
-    ANCIENT("Ancient Spells"),
-    LUNAR("Lunar Spells"),
-    ARCEUUS("Arceuus Spells"),
+    Standard("Standard Spells"),
+    Ancient("Ancient Spells"),
+    Lunar("Lunar Spells"),
+    Arceuus("Arceuus Spells"),
 }
 
 object TeleportData {

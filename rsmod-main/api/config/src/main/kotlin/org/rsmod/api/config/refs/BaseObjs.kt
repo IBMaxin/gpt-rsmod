@@ -16,6 +16,8 @@ object BaseObjs : ObjReferences() {
     val platinum_tokens = find("platinum")
 
     val bones = find("bones")
+    val raw_beef = find("raw_beef")
+    val cow_hide = find("cow_hide")
     val snowball = find("gublinch_snowball")
 
     val pot_empty = find("pot_empty")

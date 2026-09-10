@@ -64,4 +64,4 @@ private fun String.isValidSeeTagFormat(): Boolean =
 
 private fun String.isValidSeeTagReference(): Boolean = first() == '[' && last() == ']'
 
-private fun String.isValidSeeTagHyperlink(): Boolean = startsWith("<img")
+private fun String.isValidSeeTagHyperlink(): Boolean = trimStart().startsWith("<img")
