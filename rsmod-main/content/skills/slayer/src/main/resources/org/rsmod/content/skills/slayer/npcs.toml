@@ -1,0 +1,4 @@
+# Slayer master Turael — near Lumbridge castle (temporary; OSRS location is Burthorpe)
+[[spawn]]
+npc = 'slayer_master_1_tureal'
+coords = '0_50_50_10_32'
