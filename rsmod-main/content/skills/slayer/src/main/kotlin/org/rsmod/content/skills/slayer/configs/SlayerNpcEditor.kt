@@ -12,5 +12,13 @@ object SlayerNpcEditor : NpcEditor() {
             param[SlayerParams.levelrequire] = 1
             param[SlayerParams.experience] = 64
         }
+        edit(SlayerNpcRefs.chicken) {
+            param[SlayerParams.levelrequire] = 1
+            param[SlayerParams.experience] = 10
+        }
+        edit(SlayerNpcRefs.rat) {
+            param[SlayerParams.levelrequire] = 1
+            param[SlayerParams.experience] = 15
+        }
     }
 }

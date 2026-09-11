@@ -76,20 +76,26 @@ class SlayerMasterTest {
             val master = spawnNpc(CoordGrid(0, 50, 50, 32, 32), masterType)
             player.teleport(CoordGrid(0, 50, 50, 32, 33))
 
-            val validTargets = setOf(SlayerNpcRefs.cow.id, SlayerNpcRefs.goblin.id)
+            val validTargets =
+                setOf(
+                    SlayerNpcRefs.cow.id,
+                    SlayerNpcRefs.goblin.id,
+                    SlayerNpcRefs.chicken.id,
+                    SlayerNpcRefs.rat.id,
+                )
 
-            // Assign 5 times with alternating random picks
-            for (i in 0 until 5) {
+            // Assign 4 times, one for each pool entry
+            for (i in 0 until 4) {
                 // Reset task so we can get a new one
                 player.setVarp(slayer_varps.slayer_count, 0)
                 player.setVarp(slayer_varps.slayer_target, 0)
-                // Pick based on index (0=cow, 1=goblin), count always 5
-                random.next = i % 2
+                // Pick based on index, count always 5
+                random.next = i
                 random.then = 5
                 player.opNpc1(master)
                 advance(ticks = 1)
                 val target = player.vars[slayer_varps.slayer_target]
-                assertTrue(target in validTargets, "Expected cow or goblin, got target id $target")
+                assertTrue(target in validTargets, "Expected pool NPC, got target id $target")
             }
         }
 

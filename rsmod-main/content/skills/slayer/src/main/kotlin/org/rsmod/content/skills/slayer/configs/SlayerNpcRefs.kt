@@ -6,4 +6,6 @@ object SlayerNpcRefs : NpcReferences() {
     val master = find("slayer_master_1_tureal")
     val cow = find("cow")
     val goblin = find("goblin")
+    val chicken = find("chicken")
+    val rat = find("rat")
 }

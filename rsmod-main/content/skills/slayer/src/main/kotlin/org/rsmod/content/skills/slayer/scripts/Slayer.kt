@@ -21,6 +21,8 @@ class Slayer @Inject constructor(private val death: NpcDeath, private val player
     override fun ScriptContext.startup() {
         onNpcQueue(SlayerNpcRefs.cow, queues.death) { onSlayerNpcDeath() }
         onNpcQueue(SlayerNpcRefs.goblin, queues.death) { onSlayerNpcDeath() }
+        onNpcQueue(SlayerNpcRefs.chicken, queues.death) { onSlayerNpcDeath() }
+        onNpcQueue(SlayerNpcRefs.rat, queues.death) { onSlayerNpcDeath() }
     }
 
     private suspend fun org.rsmod.api.npc.access.StandardNpcAccess.onSlayerNpcDeath() {

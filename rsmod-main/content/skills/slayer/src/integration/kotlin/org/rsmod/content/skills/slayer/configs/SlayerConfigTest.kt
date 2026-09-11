@@ -11,23 +11,32 @@ import org.rsmod.game.type.npc.NpcTypeBuilder
 class SlayerConfigTest {
     @Test
     fun GameTestState.`ensure slayer task npcs have slayer params`() = runBasicGameTest {
-        val baseCow = cacheTypes.npcs.values.first { it.internalName == "cow" }
+        val testCases =
+            listOf(
+                Triple("cow", 1, 80),
+                Triple("goblin", 1, 64),
+                Triple("chicken", 1, 10),
+                Triple("rat", 1, 15),
+            )
+        for ((name, levelReq, xp) in testCases) {
+            val baseType = cacheTypes.npcs.values.first { it.internalName == name }
 
-        val editorType =
-            NpcPluginBuilder("cow")
-                .apply {
-                    param[SlayerParams.levelrequire] = 1
-                    param[SlayerParams.experience] = 80
-                }
-                .build(id = -1)
+            val editorType =
+                NpcPluginBuilder(name)
+                    .apply {
+                        param[SlayerParams.levelrequire] = levelReq
+                        param[SlayerParams.experience] = xp
+                    }
+                    .build(id = -1)
 
-        val merged = NpcTypeBuilder.merge(editorType, baseCow)
+            val merged = NpcTypeBuilder.merge(editorType, baseType)
 
-        val npcParams = merged.paramMap
-        assertNotNullContract(npcParams)
-        assertTrue(SlayerParams.levelrequire in npcParams)
-        assertTrue(SlayerParams.experience in npcParams)
-        assertEquals(1, npcParams[SlayerParams.levelrequire])
-        assertEquals(80, npcParams[SlayerParams.experience])
+            val npcParams = merged.paramMap
+            assertNotNullContract(npcParams)
+            assertTrue(SlayerParams.levelrequire in npcParams)
+            assertTrue(SlayerParams.experience in npcParams)
+            assertEquals(levelReq, npcParams[SlayerParams.levelrequire])
+            assertEquals(xp, npcParams[SlayerParams.experience])
+        }
     }
 }

@@ -57,6 +57,8 @@ class SlayerMaster @Inject constructor(private val random: GameRandom) : PluginS
             listOf(
                 SlayerTaskEntry(SlayerNpcRefs.cow, "cow", 5..10, 1),
                 SlayerTaskEntry(SlayerNpcRefs.goblin, "goblin", 5..10, 1),
+                SlayerTaskEntry(SlayerNpcRefs.chicken, "chicken", 5..10, 1),
+                SlayerTaskEntry(SlayerNpcRefs.rat, "rat", 5..10, 1),
             )
     }
 }
