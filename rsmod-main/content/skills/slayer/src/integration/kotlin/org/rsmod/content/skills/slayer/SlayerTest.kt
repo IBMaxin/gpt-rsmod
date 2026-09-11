@@ -18,7 +18,9 @@ class SlayerTest {
             val master = spawnNpc(CoordGrid(0, 50, 50, 32, 32), masterType)
             player.teleport(CoordGrid(0, 50, 50, 32, 33))
 
-            // Assign cow task
+            // Assign cow task (pick cow=0, count=5)
+            random.next = 0
+            random.then = 5
             player.opNpc1(master)
             advance(ticks = 1)
             assertEquals(5, player.vars[slayer_varps.slayer_count])
@@ -41,7 +43,9 @@ class SlayerTest {
             val master = spawnNpc(CoordGrid(0, 50, 50, 32, 32), masterType)
             player.teleport(CoordGrid(0, 50, 50, 32, 33))
 
-            // Assign cow task
+            // Assign cow task (pick cow=0, count=5)
+            random.next = 0
+            random.then = 5
             player.opNpc1(master)
             advance(ticks = 1)
             assertEquals(5, player.vars[slayer_varps.slayer_count])
@@ -65,7 +69,9 @@ class SlayerTest {
             val master = spawnNpc(CoordGrid(0, 50, 50, 32, 32), masterType)
             player.teleport(CoordGrid(0, 50, 50, 32, 33))
 
-            // Assign cow task
+            // Assign cow task (pick cow=0, count=5)
+            random.next = 0
+            random.then = 5
             player.opNpc1(master)
             advance(ticks = 1)
 
@@ -95,7 +101,9 @@ class SlayerTest {
             val master = spawnNpc(CoordGrid(0, 50, 50, 32, 32), masterType)
             player.teleport(CoordGrid(0, 50, 50, 32, 33))
 
-            // Assign cow task (cow has slayer_experience=80)
+            // Assign cow task (cow has slayer_experience=80, pick cow=0, count=5)
+            random.next = 0
+            random.then = 5
             player.opNpc1(master)
             advance(ticks = 1)
 
