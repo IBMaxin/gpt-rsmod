@@ -2,6 +2,7 @@ package org.rsmod.content.skills.slayer.scripts
 
 import jakarta.inject.Inject
 import org.rsmod.api.config.refs.stats
+import org.rsmod.api.player.output.mes
 import org.rsmod.api.player.protect.ProtectedAccess
 import org.rsmod.api.player.vars.intVarp
 import org.rsmod.api.random.GameRandom
@@ -21,26 +22,43 @@ class SlayerMaster @Inject constructor(private val random: GameRandom) : PluginS
     }
 
     private suspend fun ProtectedAccess.talkToTurael() {
-        if (slayerCount > 0) {
-            mes("You already have a slayer task. Kill $slayerCount more to complete it.")
-            return
-        }
         if (stat(stats.slayer) < MIN_SLAYER_LEVEL) {
             mes("You need a Slayer level of at least $MIN_SLAYER_LEVEL to get a task.")
             return
         }
-        val level = stat(stats.slayer)
-        val eligible = taskPool.filter { level >= it.levelReq }
-        if (eligible.isEmpty()) {
-            mes("You have no eligible slayer tasks for your level.")
+        if (slayerCount > 0) {
+            val choice = choice2("Replace my current task", 1, "Keep my current task", 2)
+            if (choice == 1) {
+                assignNewTask()
+            } else {
+                val targetName = resolveNpcName(slayerTarget)
+                mes("You still need to kill $slayerCount $targetName to complete your task.")
+            }
             return
         }
+        assignNewTask()
+    }
+
+    internal fun assignRandomTask(): Pair<NpcType, Int> {
+        val level = MIN_SLAYER_LEVEL
+        val eligible = taskPool.filter { level >= it.levelReq }
+        check(eligible.isNotEmpty()) { "No eligible slayer tasks for level $level" }
         val task = random.pick(eligible)
         val count = random.of(task.countRange)
-        slayerTarget = task.npcType.id
+        return task.npcType to count
+    }
+
+    private suspend fun ProtectedAccess.assignNewTask() {
+        val (npcType, count) = assignRandomTask()
+        slayerTarget = npcType.id
         slayerCount = count
-        val pluralName = task.npcName + "s"
+        val pluralName = resolveNpcName(npcType.id) + "s"
         mes("Your new task is to kill $count $pluralName.")
+    }
+
+    private fun resolveNpcName(npcId: Int): String {
+        val entry = taskPool.firstOrNull { it.npcType.id == npcId }
+        return entry?.npcName ?: "monster"
     }
 
     companion object {
