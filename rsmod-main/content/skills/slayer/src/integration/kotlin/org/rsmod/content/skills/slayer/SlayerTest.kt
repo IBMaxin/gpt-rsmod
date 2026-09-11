@@ -1,6 +1,7 @@
 package org.rsmod.content.skills.slayer
 
 import org.junit.jupiter.api.Test
+import org.rsmod.api.config.refs.stats
 import org.rsmod.api.npc.queueDeath
 import org.rsmod.api.testing.GameTestState
 import org.rsmod.content.skills.slayer.configs.SlayerNpcRefs
@@ -82,6 +83,33 @@ class SlayerTest {
             // Task should be complete: both varps reset
             assertEquals(0, player.vars[slayer_varps.slayer_target])
             assertEquals(0, player.vars[slayer_varps.slayer_count])
-            assertMessageSent("You've completed your slayer task! Visit a slayer master for a new one.")
+            assertMessageSent(
+                "You've completed your slayer task! Visit a slayer master for a new one."
+            )
+        }
+
+    @Test
+    fun GameTestState.`killing task npc awards slayer xp`() =
+        runGameTest(SlayerMaster::class, Slayer::class) {
+            val masterType = npcTypes[SlayerNpcRefs.master]
+            val master = spawnNpc(CoordGrid(0, 50, 50, 32, 32), masterType)
+            player.teleport(CoordGrid(0, 50, 50, 32, 33))
+
+            // Assign cow task (cow has slayer_experience=80)
+            player.opNpc1(master)
+            advance(ticks = 1)
+
+            val xpBefore = player.statMap.getXP(stats.slayer)
+
+            // Spawn and kill a cow
+            val cowType = npcTypes[SlayerNpcRefs.cow]
+            val cow = spawnNpc(CoordGrid(0, 50, 50, 34, 32), cowType)
+            cow.hitpoints = 0
+            cow.heroPoints(player, 1)
+            cow.queueDeath()
+            advance(ticks = 1)
+
+            val xpAfter = player.statMap.getXP(stats.slayer)
+            assertEquals(xpBefore + 80, xpAfter)
         }
 }

@@ -1,5 +1,6 @@
 package org.rsmod.content.skills.slayer.scripts
 
+import org.rsmod.api.config.refs.stats
 import org.rsmod.api.player.protect.ProtectedAccess
 import org.rsmod.api.player.vars.intVarp
 import org.rsmod.api.script.onOpNpc1
@@ -21,6 +22,10 @@ class SlayerMaster : PluginScript() {
             mes("You already have a slayer task. Kill ${slayerCount} more to complete it.")
             return
         }
+        if (stat(stats.slayer) < MIN_SLAYER_LEVEL) {
+            mes("You need a Slayer level of at least $MIN_SLAYER_LEVEL to get a task.")
+            return
+        }
         slayerTarget = SlayerNpcRefs.cow.id
         slayerCount = TASK_COUNT
         mes("Your new task is to kill ${TASK_COUNT} cows.")
@@ -28,5 +33,6 @@ class SlayerMaster : PluginScript() {
 
     companion object {
         private const val TASK_COUNT = 5
+        private const val MIN_SLAYER_LEVEL = 1
     }
 }

@@ -1,6 +1,7 @@
 package org.rsmod.content.skills.slayer
 
 import org.junit.jupiter.api.Test
+import org.rsmod.api.config.refs.stats
 import org.rsmod.api.testing.GameTestState
 import org.rsmod.content.skills.slayer.configs.SlayerNpcRefs
 import org.rsmod.content.skills.slayer.configs.slayer_varps
@@ -41,5 +42,21 @@ class SlayerMasterTest {
 
             assertEquals(5, player.vars[slayer_varps.slayer_count])
             assertMessageSent("You already have a slayer task. Kill 5 more to complete it.")
+        }
+
+    @Test
+    fun GameTestState.`talk to turael with level 0 gets rejected`() =
+        runGameTest(SlayerMaster::class) {
+            val masterType = npcTypes[SlayerNpcRefs.master]
+            val master = spawnNpc(CoordGrid(0, 50, 50, 32, 32), masterType)
+            player.teleport(CoordGrid(0, 50, 50, 32, 33))
+            player.stats[stats.slayer] = 0
+
+            player.opNpc1(master)
+            advance(ticks = 1)
+
+            assertMessageSent("You need a Slayer level of at least 1 to get a task.")
+            assertEquals(0, player.vars[slayer_varps.slayer_target])
+            assertEquals(0, player.vars[slayer_varps.slayer_count])
         }
 }

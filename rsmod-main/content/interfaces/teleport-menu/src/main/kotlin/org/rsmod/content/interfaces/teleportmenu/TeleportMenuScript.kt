@@ -28,14 +28,14 @@ constructor(
     internal suspend fun ProtectedAccess.showCategoryMenu() {
         val choice =
             choice4(
-                TeleportCategory.STANDARD.displayName,
-                TeleportCategory.STANDARD,
-                TeleportCategory.ANCIENT.displayName,
-                TeleportCategory.ANCIENT,
-                TeleportCategory.LUNAR.displayName,
-                TeleportCategory.LUNAR,
-                TeleportCategory.ARCEUUS.displayName,
-                TeleportCategory.ARCEUUS,
+                TeleportCategory.Standard.displayName,
+                TeleportCategory.Standard,
+                TeleportCategory.Ancient.displayName,
+                TeleportCategory.Ancient,
+                TeleportCategory.Lunar.displayName,
+                TeleportCategory.Lunar,
+                TeleportCategory.Arceuus.displayName,
+                TeleportCategory.Arceuus,
             )
         showTeleportList(choice, page = 0)
     }

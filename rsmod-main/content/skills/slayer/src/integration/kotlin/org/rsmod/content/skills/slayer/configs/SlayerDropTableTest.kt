@@ -16,10 +16,7 @@ class SlayerDropTableTest {
 
     @Test
     fun GameTestState.`cow has drop table with bones and coins`() =
-        runInjectedGameTest(
-            DropTableDeps::class,
-            childModule = SlayerDropTestModule,
-        ) { deps ->
+        runInjectedGameTest(DropTableDeps::class, childModule = SlayerDropTestModule) { deps ->
             SlayerDrops.registerAll(deps.repo, npcTypes)
             val cowType = npcTypes[SlayerNpcRefs.cow]
             val table = deps.repo.getTable(cowType)
@@ -35,10 +32,7 @@ class SlayerDropTableTest {
 
     @Test
     fun GameTestState.`goblin has drop table with bones and coins`() =
-        runInjectedGameTest(
-            DropTableDeps::class,
-            childModule = SlayerDropTestModule,
-        ) { deps ->
+        runInjectedGameTest(DropTableDeps::class, childModule = SlayerDropTestModule) { deps ->
             SlayerDrops.registerAll(deps.repo, npcTypes)
             val goblinType = npcTypes[SlayerNpcRefs.goblin]
             val table = deps.repo.getTable(goblinType)
@@ -54,10 +48,7 @@ class SlayerDropTableTest {
 
     @Test
     fun GameTestState.`cow drop table has 4 entries`() =
-        runInjectedGameTest(
-            DropTableDeps::class,
-            childModule = SlayerDropTestModule,
-        ) { deps ->
+        runInjectedGameTest(DropTableDeps::class, childModule = SlayerDropTestModule) { deps ->
             SlayerDrops.registerAll(deps.repo, npcTypes)
             val cowType = npcTypes[SlayerNpcRefs.cow]
             val table = deps.repo.getTable(cowType)

@@ -65,9 +65,9 @@ object TeleportData {
 
     fun forCategory(category: TeleportCategory): List<TeleportEntry> =
         when (category) {
-            TeleportCategory.STANDARD -> standard
-            TeleportCategory.ANCIENT -> ancient
-            TeleportCategory.LUNAR -> lunar
-            TeleportCategory.ARCEUUS -> arceuus
+            TeleportCategory.Standard -> standard
+            TeleportCategory.Ancient -> ancient
+            TeleportCategory.Lunar -> lunar
+            TeleportCategory.Arceuus -> arceuus
         }
 }

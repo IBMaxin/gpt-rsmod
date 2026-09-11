@@ -1,6 +1,5 @@
 package org.rsmod.content.skills.cooking.configs
 
-import org.rsmod.api.config.refs.content
 import org.rsmod.api.type.editors.loc.LocEditor
 import org.rsmod.game.type.loc.LocType
 
@@ -27,7 +26,8 @@ internal object CookingLocEditor : LocEditor() {
     }
 
     private fun editRange(type: LocType) {
-        // TODO(cooking): Add content.cooking_range content group to BaseContent once defined in cache.
+        // TODO(cooking): Add content.cooking_range content group to BaseContent once defined in
+        // cache.
         // edit(type) { contentGroup = content.cooking_range }
     }
 }
